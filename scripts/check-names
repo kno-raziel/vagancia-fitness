@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+"""Reject obsolete product naming except narrowly scoped compatibility literals."""
+import re
+import sys
+from _repository import ROOT, public_files
+
+obsolete = re.compile(r"(?:open[\s_-]*fitness|fitness[\s_-]*open)", re.IGNORECASE)
+stable_ids = {
+    "dev." + "open" + "fitness.kraziel.app",
+    "dev." + "open" + "fitness.diagnostics",
+    "dev." + "open" + "fitness.kraziel.watchcallbacks.tests",
+}
+identity_file = "apple/Config/InstallationIdentity.sh"
+project_file = "apple/VaganciaFitness.xcodeproj/project.pbxproj"
+storage_file = "apple/Packages/FitnessKit/Sources/FitnessRuntime/Evidence/ApplicationDataDirectory.swift"
+errors = []
+for path in public_files():
+    relative = path.relative_to(ROOT).as_posix()
+    if obsolete.search(relative):
+        errors.append(f"Obsolete source path: {relative}")
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except UnicodeDecodeError:
+        continue
+    for number, line in enumerate(lines, 1):
+        if not obsolete.search(line):
+            continue
+        # Existing Apple installation IDs are identity, not branding.
+        if relative in {identity_file, project_file}:
+            value = line.split("=", 1)[-1].strip().rstrip(";")
+            if relative == identity_file:
+                value = value.split(":-", 1)[-1].rstrip("}")
+            allowed = stable_ids | {item + suffix for item in stable_ids for suffix in (".watchkitapp", ".uitests")}
+            if value in allowed:
+                continue
+        if relative == "design/prototype/app.js" and line.strip() == "const PREVIOUS_STORAGE_KEY='" + "fitness-" + "open-v1';":
+            continue
+        # A single explicit compatibility path enables lossless upgrade migration.
+        if relative == storage_file and line.strip() == 'static let legacyDirectoryName = "' + 'Open' + 'Fitness"':
+            continue
+        errors.append(f"Obsolete naming: {relative}:{number}")
+if errors:
+    print("\n".join(errors), file=sys.stderr)
+    sys.exit(1)
+print("Naming: current app/project names; only fixed installation IDs and storage migration identifiers exempted.")

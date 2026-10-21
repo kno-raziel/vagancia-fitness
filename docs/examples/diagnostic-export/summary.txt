@@ -1,0 +1,9 @@
+VAGANCIA FITNESS — documentation export example
+Session: example-session-001
+Source: synthetic
+Connected hardware: none
+Speed control capability: unknown
+Start test: not run
+Movement commands sent: none
+Capture: complete for this example, with no dropped events
+This package does not represent a real YK-03K45 diagnosis.

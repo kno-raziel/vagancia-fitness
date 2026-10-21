@@ -1,0 +1,3 @@
+// Set your own signing team in Xcode, or in the ignored Local.xcconfig.
+// Local.xcconfig may contain DEVELOPMENT_TEAM = YOUR_TEAM_ID
+#include? "Local.xcconfig"

@@ -1,0 +1,23 @@
+# Native app captures
+
+These images show the checked-in native SwiftUI apps in Spanish on an iPhone simulator. All workout and diagnostic values come from isolated synthetic UI-test scenarios. They contain no hardware-session exports, operator notes, health records, real device identifiers or third-party FitShow screenshots. The product brand retains its [separate notice](../../shared/brand/NOTICE.md).
+
+| Image | Native UI test | Attachment name |
+| --- | --- | --- |
+| [Home](app-home.png) | `VaganciaFitnessUITests.testCaptureProductScreensAcrossThePrimaryFlows` | `product-home` |
+| [Workout](app-workout.png) | Same product test | `product-active-workout` |
+| [History](app-history.png) | Same product test | `product-activity` |
+| [Debug](app-debug.png) | `SessionFlowTests.testNativeLiquidGlassTabsKeepHistoricalMetricsAndMotorGates` | `liquid-glass-session` |
+
+Run `./apple/scripts/test ui-product` and `./apple/scripts/test ui-debug` with an installed supported simulator. The tests retain the named screenshot attachments in their `.xcresult` bundles under ignored `build/apple/Results/`. Export attachments with `xcrun xcresulttool export attachments --path RESULT_BUNDLE --output-path NEW_DIRECTORY`; its `manifest.json` maps test identifiers and attachment names to files. Keep the full run and attachment manifest private under `build/`.
+
+Visually review the selected captures, then use the metadata-only [exporter](../../apple/scripts/export-documentation-screenshots.py) to refresh the fixed filenames:
+
+```sh
+./apple/scripts/export-documentation-screenshots.py build/product-attachments --kind product
+./apple/scripts/export-documentation-screenshots.py build/debug-attachments --kind debug
+```
+
+The helper requires the expected test identifiers and attachment names, validates all selected PNG chunks and paths before writing, and removes EXIF, XMP, text and timestamp metadata. It preserves pixel data and required color/transparency chunks byte for byte. Existing images at the four fixed filenames are replaced deliberately; original attachments remain unchanged. This is metadata removal, not automatic visual anonymization, so review the pixels before invoking it.
+
+Refresh captures when the represented native interface changes. Keep captions explicit about synthetic data, review pixels for identifiers and verify that each image matches its source flow. The HTML prototype is a design reference, not the source of these native screenshots.

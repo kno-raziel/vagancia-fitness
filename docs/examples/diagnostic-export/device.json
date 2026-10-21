@@ -1,0 +1,10 @@
+{
+  "sessionId": "example-session-001",
+  "source": "synthetic",
+  "localPeripheralIdentifier": null,
+  "advertisedName": null,
+  "reportedIdentity": null,
+  "readIdentity": { "manufacturer": null, "moduleModel": null, "firmware": null },
+  "services": [],
+  "candidateProfiles": []
+}

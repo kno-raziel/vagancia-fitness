@@ -1,0 +1,481 @@
+{
+  "source": "hardware",
+  "origin": "Pre-branding diagnostic app 0.4.0 (6), session 10517cb8, 2026-10-14; selected transitions and FitShow messages. Identifiers removed. Absence does not prove firmware causality.",
+  "events": [
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:40:47.640Z",
+      "hex": "8C0500000000000000FF7F0000000000000000"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:41:51.867Z",
+      "hex": "8C0532000000000000FF7F0000000000000100"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:41:52.367Z",
+      "hex": "8C0550000000000000FF7F0000000000000100"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:42:10.116Z",
+      "hex": "8C05C8000A00000000FF7F0000000000001300"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:42:22.243Z",
+      "hex": "8C052C011400000000FF7F0100000000001F00"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:42:34.368Z",
+      "hex": "8C052C011E00000000FF7F0200000000002B00"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:42:35.493Z",
+      "hex": "8C0550001E00000000FF7F0200000000002C00"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:42:40.493Z",
+      "hex": "8C053C001E00000000FF7F0200000000003100"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:42:40.994Z",
+      "hex": "8C051E001E00000000FF7F0200000000003100"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:42:41.493Z",
+      "hex": "8C050A001E00000000FF7F0200000000003100"
+    },
+    {
+      "kind": "ftms.treadmill.received",
+      "timestamp": "2026-10-14T17:42:41.993Z",
+      "hex": "8C0500000000000000FF7F0000000000003100"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:02.369Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:02.869Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:03.407Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:03.869Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.query.requested",
+      "timestamp": "2026-10-14T17:43:04.014Z",
+      "channel": "FFF0",
+      "hex": "0250025203"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:04.244Z",
+      "channel": "FFF0",
+      "hex": "025002A008FA03"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:04.368Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:04.908Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:05.493Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:05.993Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:06.493Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:06.993Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:07.493Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:08.032Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:08.493Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:08.993Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:09.619Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:09.993Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:10.494Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:10.993Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:11.493Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:11.994Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:12.493Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:13.157Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:13.494Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:14.120Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:14.493Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:15.033Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:15.744Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:16.119Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:16.619Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:17.120Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:17.619Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:18.119Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:18.618Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:19.118Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:19.619Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:20.119Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:20.617Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:21.117Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:21.616Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:22.114Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:22.613Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:23.111Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:23.610Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:24.109Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:24.609Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:25.233Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:25.731Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:26.231Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:26.730Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:27.229Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:27.728Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:28.227Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:28.725Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:29.226Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:29.725Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:30.224Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:30.724Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:31.223Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:31.849Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:32.224Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:32.721Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:33.220Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.query.requested",
+      "timestamp": "2026-10-14T17:43:33.313Z",
+      "channel": "FFF0",
+      "hex": "02515103"
+    },
+    {
+      "kind": "fitshow.notification.received",
+      "timestamp": "2026-10-14T17:43:33.471Z",
+      "channel": "FFF0",
+      "hex": "0251005103"
+    },
+    {
+      "kind": "fitshow.query.requested",
+      "timestamp": "2026-10-14T17:43:52.024Z",
+      "channel": "FFE0",
+      "hex": "0250025203"
+    },
+    {
+      "kind": "fitshow.query.timeout",
+      "timestamp": "2026-10-14T17:43:57.398Z",
+      "channel": "FitShow \u00b7 FFE0",
+      "hex": null
+    },
+    {
+      "kind": "fitshow.query.requested",
+      "timestamp": "2026-10-14T17:44:02.070Z",
+      "channel": "FFE0",
+      "hex": "02515103"
+    },
+    {
+      "kind": "fitshow.query.timeout",
+      "timestamp": "2026-10-14T17:44:07.430Z",
+      "channel": "FitShow \u00b7 FFE0",
+      "hex": null
+    }
+  ]
+}

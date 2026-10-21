@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "copies": [
+    {
+      "canonical": "shared/test-vectors/ftms/yk-motion-replay.json",
+      "copy": "apple/Packages/FitnessKit/Tests/FitnessRuntimeTests/Fixtures/yk-motion-replay.json"
+    },
+    {
+      "canonical": "shared/test-vectors/fitshow/frames.json",
+      "copy": "apple/Packages/FitnessKit/Tests/FitnessRuntimeTests/Fixtures/PublicFitShowVectors.json"
+    }
+  ],
+  "brandCopies": [
+    {
+      "canonical": "shared/brand/fitness-mark-v8.svg",
+      "copy": "apple/Apps/VaganciaFitness/Resources/Assets.xcassets/FitnessMark.imageset/FitnessMark.svg"
+    },
+    {
+      "canonical": "shared/brand/fitness-wordmark.svg",
+      "copy": "apple/Apps/VaganciaFitness/Resources/Assets.xcassets/FitnessWordmark.imageset/FitnessWordmark.svg"
+    }
+  ]
+}

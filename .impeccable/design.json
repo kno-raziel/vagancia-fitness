@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 2,
+  "title": "Design System: VAGANCIA FITNESS",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "canonical": "#080808"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Black paper",
+        "canonical": "#141416"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#242428"
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "VP red",
+        "canonical": "#F02D2A"
+      },
+      "fire": {
+        "role": "secondary",
+        "displayName": "Fire",
+        "canonical": "#FF6247"
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Ivory",
+        "canonical": "#E6E3DF"
+      },
+      "secondary": {
+        "role": "neutral",
+        "displayName": "Secondary text",
+        "canonical": "#B1AFB5"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Border",
+        "canonical": "#424248"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Titles",
+        "purpose": "Asimovian-Regular 400 scaled with SwiftUI Dynamic Type."
+      },
+      "headline": {
+        "displayName": "Headings",
+        "purpose": "Inter SemiBold 600 or Bold 700 according to hierarchy."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Inter Regular 400 and scalable semantic styles."
+      },
+      "label": {
+        "displayName": "Units and provenance",
+        "purpose": "Inter for labels, Lekton Regular 400 for metadata, and SF monospaced digits."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [],
+    "native": {
+      "vaganciaFitness": {
+        "platform": "ios",
+        "minimumOS": "iOS 26",
+        "implementation": "SwiftUI",
+        "tint": "#FF6247 (FitnessPalette.accent)",
+        "workoutSurface": "#080808 (FitnessPalette.canvas); paper #141416 and surface #242428 provide tonal grouping.",
+        "textRoles": [
+          "system styles with Dynamic Type",
+          "Color.primary",
+          "Color.secondary",
+          "Color.tertiary",
+          "Color.white on workout surface"
+        ],
+        "materials": [
+          "thinMaterial (device connection tile)",
+          "ultraThinMaterial (workout action dock)",
+          "native SwiftUI controls; ivory primary actions, fire navigation tint and red stop/profile accent"
+        ],
+        "navigation": [
+          "TabView: Home, Programs, Activity, Settings (localized in Spanish and English)",
+          "NavigationStack per tab",
+          "fullScreenCover for workout flow",
+          "native Form and sheets for program, manual controls, notes and sharing"
+        ],
+        "dynamicType": "Uses semantic SwiftUI text styles; workout metrics and time/plan groups switch to a vertical layout at accessibility sizes.",
+        "componentPreviewPolicy": "HTML entries are textual index cards for native SwiftUI components; they do not reproduce Apple controls, materials, dynamic colors or Liquid Glass.",
+        "palette": {
+          "canvas": "#080808",
+          "paper": "#141416",
+          "surface": "#242428",
+          "red": "#F02D2A",
+          "accent": "#FF6247",
+          "text": "#E6E3DF",
+          "secondary": "#B1AFB5",
+          "border": "#424248"
+        },
+        "typography": {
+          "display": "Asimovian-Regular 400; scaled relative to SwiftUI semantic styles",
+          "body": "Inter-Regular 400, Inter-SemiBold 600, Inter-Bold 700; semantic SwiftUI sizes",
+          "metadata": "Lekton-Regular 400 at 13pt relative to caption",
+          "numeric": "SF system monospaced digits for metrics and timers"
+        },
+        "brandAssets": {
+          "mark": "FitnessMark from v8 eye SVG",
+          "wordmark": "FitnessWordmark, outlined v7 SVG",
+          "header": {
+            "placement": "ToolbarItem.principal",
+            "markSizePoints": 34,
+            "wordmarkSizePoints": {
+              "width": 88,
+              "height": 30
+            },
+            "gapPoints": 8,
+            "accessibility": "Single heading: VAGANCIA FITNESS"
+          },
+          "assetProvenance": "apple/Apps/VaganciaFitness/Resources/Brand/manifest-v8.json"
+        },
+        "shapeRadii": {
+          "profile-step": "3pt",
+          "metric-icon": "12pt",
+          "card": "14pt",
+          "featured-program": "14pt",
+          "nativeForm": "System-resolved by iOS"
+        },
+        "documentation": "docs/architecture.md"
+      },
+      "vaganciaFitnessDebug": {
+        "platform": "ios",
+        "implementation": "SwiftUI",
+        "rootTint": "Color.blue",
+        "textRoles": [
+          "Color.primary",
+          "Color.secondary"
+        ],
+        "materials": [
+          "bar",
+          "glass (iOS 26+)",
+          "glassProminent (iOS 26+)"
+        ],
+        "componentPreviewPolicy": "HTML cards only describe SwiftUI references; they do not reproduce controls or Liquid Glass. Native code and captures are the visual reference.",
+        "designTokens": {
+          "colors": {
+            "action-fill": "rgb(0% 39% 39%)",
+            "action-text": "#ffffff"
+          },
+          "typography": [
+            "speed: -apple-system, semibold, scaled relative to largeTitle with monospaced digits",
+            "headline: -apple-system",
+            "body: -apple-system",
+            "subheadline: -apple-system",
+            "footnote: -apple-system",
+            "caption: -apple-system"
+          ],
+          "spacing": {
+            "metric-group": "28pt",
+            "dashboard-horizontal": "24pt",
+            "distance-gap": "20pt",
+            "action-gap": "12pt",
+            "rail-horizontal": "16pt",
+            "rail-vertical": "8pt",
+            "event-gap": "4pt"
+          },
+          "component": {
+            "button-start-record": {
+              "backgroundColor": "{colors.action-fill}",
+              "textColor": "{colors.action-text}"
+            }
+          }
+        },
+        "documentation": "docs/architecture.md",
+        "minimumOS": "iOS 26"
+      },
+      "vaganciaFitnessWatch": {
+        "platform": "watchos",
+        "minimumOS": "watchOS 26",
+        "implementation": "SwiftUI",
+        "palette": "VP Black Paper: canvas #080808, ivory #E6E3DF, red #F02D2A, fire #FF6247",
+        "brandAssets": "FitnessMark (v8 eye) and FitnessWordmark (outlined v7)",
+        "layout": "Compact vertical scroll; readiness and capture state precede live metrics. Pulse, active time, speed and distance lead; energy and program phase continue below.",
+        "metricPresentation": "Show source and sample age. Old values reduce emphasis; planned, effective and measured values remain distinct.",
+        "controls": "Native SwiftUI controls. Preparation, Health capture state, summary and save result are explicit. Start, pause, adjustment and stop remain on iPhone; no Watch motor controls.",
+        "documentation": "docs/architecture.md"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "VAGANCIA FITNESS navigation",
+      "kind": "nav",
+      "description": "Four native destinations with one navigation stack per tab.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · VAGANCIA FITNESS navigation</strong><br>TabView: Home · Programs · Activity · Settings</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    },
+    {
+      "name": "Featured program",
+      "kind": "card",
+      "description": "Dark surface card with an interval profile and a 14 pt radius.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · Featured program</strong><br>Dark surface · stage profile · 14 pt radius</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    },
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "description": "Free workouts, program start and exports use ivory #E6E3DF on black; fire #FF6247 is the navigation tint and secondary active accent; red #F02D2A marks Stop and effort in the profile.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · Primary action</strong><br>Ivory #E6E3DF on black · navigation tint #FF6247</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    },
+    {
+      "name": "Program editor",
+      "kind": "input",
+      "description": "Sheet with NavigationStack and Form for the name, phases and per-interval targets.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · Program editor</strong><br>Form · system fields · interval actions</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    },
+    {
+      "name": "Workout dashboard",
+      "kind": "custom",
+      "description": "Immersive dark surface with time, stage, targets and metrics grouped by source.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · Workout dashboard</strong><br>Color.black · monospaced time · sourced metrics</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    },
+    {
+      "name": "Target and measurement provenance",
+      "kind": "custom",
+      "description": "Keeps Planned, Effective and Measured as separate rows and sources.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · Target and measurement provenance</strong><br>Planned · Effective · Measured</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    },
+    {
+      "name": "Summary and export",
+      "kind": "custom",
+      "description": "Local history, chart by source, notes and native export actions.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · Summary and export</strong><br>Metrics · source · chart · notes · JSON/ZIP</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    },
+    {
+      "name": "Grouped settings",
+      "kind": "input",
+      "description": "Native Form for device, demonstration, sample metrics and local storage.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · Grouped settings</strong><br>Form · Toggle · LabeledContent · destructive confirmation</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    },
+    {
+      "name": "Watch dashboard",
+      "kind": "custom",
+      "description": "Compact native view with preparation, active metrics including source and age, vertical detail and Health save status.",
+      "html": "<p class=\"ds-native-reference\"><strong>SwiftUI reference · Watch dashboard</strong><br>Preparation · heart rate · time · FTMS speed/distance · HealthKit energy · Health result</p>",
+      "css": ".ds-native-reference { font-family: -apple-system, sans-serif; color: CanvasText; padding: 12px; } .ds-native-reference strong { font-weight: 600; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Movement in view",
+    "overview": "VAGANCIA FITNESS applies VP Black Paper, a red accent and ivory text to a native iOS 26 app. The protected header combines the v8 eye and v7 outlined wordmark. Asimovian leads titles, Inter organizes the interface and Lekton marks metadata; controls and Liquid Glass are native. Each metric retains its unit and provenance. VaganciaFitnessDebug remains an independent diagnostic app with its own installation identity.",
+    "keyCharacteristics": [
+      "VP Black Paper: #080808, #141416 and #242428; red #F02D2A and fire #FF6247.",
+      "V8 eye and v7 outlined wordmark in an 88 × 30 pt header.",
+      "Asimovian 400, Inter 400/600/700, Lekton 400 and SF monospaced digits.",
+      "Native iOS 26 SwiftUI controls and Liquid Glass.",
+      "Accessible summary with complete units and sources; demonstration data is identified."
+    ],
+    "rules": [
+      {
+        "name": "Visible provenance",
+        "body": "Keep unit and source next to each value; a target or simulated value is not a physical measurement.",
+        "section": "typography"
+      },
+      {
+        "name": "System materials",
+        "body": "Use SwiftUI styles and materials for navigation, sheets, controls and Liquid Glass.",
+        "section": "elevation"
+      },
+      {
+        "name": "Vector brand",
+        "body": "Use the approved v8 eye and v7 outlined wordmark vectors; preserve the compact header.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** preserve the four tabs, NavigationStack, Form, List, sheets and Apple SF Symbols.",
+      "**Do** use the VP Black Paper palette and bundled licensed fonts.",
+      "**Do** preserve Dynamic Type and rearrange groups at accessibility sizes.",
+      "**Do** label metrics with unit and source and separate Planned, Effective and Measured.",
+      "**Do** keep VaganciaFitnessDebug as an independent diagnostic app."
+    ],
+    "donts": [
+      "**Don’t** present synthetic captures as physical evidence or VoiceOver verification.",
+      "**Don’t** imitate Liquid Glass outside native iOS materials.",
+      "**Don’t** truncate units or sources at accessibility sizes.",
+      "**Don’t** turn planned targets or simulated data into physical measurements.",
+      "**Don’t** change VaganciaFitnessDebug installation identity or overwrite private original evidence."
+    ]
+  }
+}

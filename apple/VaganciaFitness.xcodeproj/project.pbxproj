@@ -1,0 +1,1265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0654D6C0F1E887D68A635942 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B3EFB2CDDCA1976B2CA909DC /* PrivacyInfo.xcprivacy */; };
+		072B3B02216FF0A852E94DD8 /* FitnessTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF02408DE2674C6C8C57798 /* FitnessTabsView.swift */; };
+		0A40FABF50A43119598C7F00 /* WatchSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168884D4CBB4D6CDC910F2C /* WatchSetupView.swift */; };
+		0CADC4A4960AA30664D72E3A /* BluetoothDiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D2BBDC37A36C4040F10D0 /* BluetoothDiscoveryView.swift */; };
+		1212F4CA205E0A9772434563 /* WatchHealthQueryCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0E65507433DE958E15480 /* WatchHealthQueryCallbacks.swift */; };
+		16693368F8BFE6A852A8829A /* font-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = B7952D39C6F2A4CCBCAA1AEB /* font-manifest.json */; };
+		174C042E87B266FCBA2ABF1D /* asimovian-LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E01F6317EC3AFA487146B9D3 /* asimovian-LICENSE.txt */; };
+		1832B0C1D23CE32D8F7DBB8E /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 07720E92CBD2A1FE7C16A963 /* InfoPlist.xcstrings */; };
+		2000B15730427F95BB69D2D4 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5811BE509DC6C8F77C7185FD /* SessionView.swift */; };
+		20E8C45C6968955D23506A6A /* FitnessCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABC5709D1F153CAB3160F13 /* FitnessCore */; };
+		2279079C4CB09DCE7262844C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7BCC582205BA8D4FA4C9B350 /* Localizable.xcstrings */; };
+		2F8B4C2D38861B399DD57B8F /* WatchHealthQueryCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0E65507433DE958E15480 /* WatchHealthQueryCallbacks.swift */; };
+		359A5CEFF6B3EAD2B8BDEB9F /* WatchWorkoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30B063112BC3546C7D8C0C8 /* WatchWorkoutService.swift */; };
+		378B7F08C6210D8FAD6C6FF1 /* VaganciaFitnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1EE3B5508C4167C0528638 /* VaganciaFitnessApp.swift */; };
+		384FCCDE6D2BBDB812715B74 /* LiveDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09BD29BDEAAF0692115F13 /* LiveDashboardView.swift */; };
+		3A16A63DA5BEB385538B84F2 /* lekton-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AACBA807E4FC0DA80F55FE57 /* lekton-400.ttf */; };
+		48A68D72547B04B50E7643A9 /* ProgramViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E85002BB5AC0AE8E6EFF31 /* ProgramViews.swift */; };
+		4C363F807C89D8716841F17E /* VaganciaFitnessWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CB1CE5A8663F1007AD9314 /* VaganciaFitnessWatchApp.swift */; };
+		4FC7F1D41B28F1D13BC622E6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B63E123D3F9386C17DD49884 /* Localizable.xcstrings */; };
+		508C812E73E979137766DDDF /* inter-600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E8DDEED10E4E902D0FABF5 /* inter-600.ttf */; };
+		5483711DA60F97743A9C9539 /* WatchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C267FA25B2DD3C8A36D8FF7 /* WatchRootView.swift */; };
+		54BC1B65C937A5E04590372E /* VaganciaFitnessDebugApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463943FC27E51086911BBC5C /* VaganciaFitnessDebugApp.swift */; };
+		5FF963F05F5E1285C9EA2804 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB339BDF375DFED6C70D9C1 /* HealthKit.framework */; };
+		64FA749B56CECBE8F5592C77 /* SessionFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A858ADF17C3AFB31A9072 /* SessionFlowTests.swift */; };
+		654BBFD7BC0998A4A8D8D6B7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF743A1207EEE65E29400F /* HomeView.swift */; };
+		6B5B43AFF4DC2E03C5806E34 /* WorkoutShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB332A231FEBD0ED26A42F /* WorkoutShareCard.swift */; };
+		6EB96F6979F65BC196F354C3 /* WorkoutFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2649869AB36FE09BBE7AF2 /* WorkoutFlowView.swift */; };
+		72C5AFD5EE3AADC9A6396063 /* FitnessRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = DD1C68ACD8D16D1C9734BA4A /* FitnessRuntime */; };
+		7351326EE0BAF21A5EFB74F4 /* WatchText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770F0D9F6F6AFBB6C18271F9 /* WatchText.swift */; };
+		7797E1D192A4DC19DEE089D9 /* lekton-LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A65CCCC31E06DD415970C8E0 /* lekton-LICENSE.txt */; };
+		7DDF3E75017454EF81C4EE00 /* VaganciaFitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA9609DDB381413FC61729 /* VaganciaFitnessUITests.swift */; };
+		8021EE5ABD628DDB7F363A20 /* FTMSDiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC918F27FA4076C8DEEA2A3 /* FTMSDiagnosticsView.swift */; };
+		8975AC73A28BFD0498ECFF96 /* WatchCallbackBoundaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA719DD0B153A3B103DF761E /* WatchCallbackBoundaryTests.swift */; };
+		8BB8DB7449DDB1FBC2D22487 /* FitnessCore in Frameworks */ = {isa = PBXBuildFile; productRef = 27AC55A1E4E4ADF46E9EC2D2 /* FitnessCore */; };
+		8E79C77C7B1CD5ED4023DC26 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 29031543D5965DAAD274BE44 /* PrivacyInfo.xcprivacy */; };
+		A34CADF35FCDC32500CD85CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADD0CCB3CC43EE3159D78FCC /* Assets.xcassets */; };
+		A6637AEE1D7CE96ACA87D02D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B353185F4F45D7723FF0D5 /* SettingsView.swift */; };
+		ADAFBEAB08DA26A21881C0EC /* manifest-v8.json in Resources */ = {isa = PBXBuildFile; fileRef = 1271283AFB90CBCA8790B7BD /* manifest-v8.json */; };
+		B08B0F5A9E6BCA83FE269B78 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A40FEFB7B7CB313197497CEB /* PrivacyInfo.xcprivacy */; };
+		B4B3618A3961E231BFDBCC92 /* FitnessCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3C0ACE4D9808BEFF1CCC5EC9 /* FitnessCore */; };
+		B5109D8821605B7EB37F79E8 /* VaganciaFitnessWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A37F2DF1BFFBA922653F4920 /* VaganciaFitnessWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C1C9128E456A3ED5AB5BDB45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF8193978246FDFFCF64EFF /* Assets.xcassets */; };
+		D125765B8F51270859CD0125 /* ActivityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D501148371AD5F02B23B67A /* ActivityViews.swift */; };
+		DABBEF07F53159247F50FDAC /* FitnessRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 86EA64CF28397819489CB9D5 /* FitnessRuntime */; };
+		DB62F2322BAB079C749CDD05 /* inter-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7F4E9FE097F3AC19D57D22E /* inter-400.ttf */; };
+		DC2427FDDCAEA787EE5D3583 /* FitnessCore in Frameworks */ = {isa = PBXBuildFile; productRef = DF407F4325DF27E5BF0A2DCA /* FitnessCore */; };
+		E70B4566CFC2A02BBBE91CAD /* asimovian-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E257496802EC16860F3616C0 /* asimovian-400.ttf */; };
+		E80B573D53E2792714DAE335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A48603DEC9FCEEFED4455A /* Assets.xcassets */; };
+		EC37A7CBE285B093728C33E1 /* inter-700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B30AF4E4AF79C4651F62D2D1 /* inter-700.ttf */; };
+		F1F43F349849164A0715B030 /* FitnessBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF255E7F7E8409F9259B0D /* FitnessBrand.swift */; };
+		F72245EDE660FA25DA30FD12 /* inter-LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 853556A1323E93AABB94D921 /* inter-LICENSE.txt */; };
+		FE5F2E511DB13BE36E423089 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 470EA690E1F40DBB360FD542 /* InfoPlist.xcstrings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3EE94E7626C215634D21E13C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BED3FAF2D1E984513DEDEEA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EAFAAA875CB6C3600422F66;
+			remoteInfo = VaganciaFitnessWatch;
+		};
+		839C1CAAE18889F8D3901DE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BED3FAF2D1E984513DEDEEA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B6E081D31F023693F538F8F;
+			remoteInfo = VaganciaFitness;
+		};
+		AC82D2DEA73DF448736F80D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BED3FAF2D1E984513DEDEEA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0CD6F4A6A74C79F124B2015;
+			remoteInfo = VaganciaFitnessDebug;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		123C45CEF3F6EB87384850D2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B5109D8821605B7EB37F79E8 /* VaganciaFitnessWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0192DEA41FF85CA24EC40EAD /* Local.xcconfig.example */ = {isa = PBXFileReference; path = Local.xcconfig.example; sourceTree = "<group>"; };
+		07720E92CBD2A1FE7C16A963 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		08B353185F4F45D7723FF0D5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1271283AFB90CBCA8790B7BD /* manifest-v8.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "manifest-v8.json"; sourceTree = "<group>"; };
+		16CA9609DDB381413FC61729 /* VaganciaFitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaganciaFitnessUITests.swift; sourceTree = "<group>"; };
+		1EDB332A231FEBD0ED26A42F /* WorkoutShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutShareCard.swift; sourceTree = "<group>"; };
+		2417C5A5F53C602579E16881 /* VaganciaFitnessDebug.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = VaganciaFitnessDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27F04EC8C1B9A6DD2CCD365D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		29031543D5965DAAD274BE44 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2AB339BDF375DFED6C70D9C1 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		2EF8193978246FDFFCF64EFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31EF743A1207EEE65E29400F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		41E8DDEED10E4E902D0FABF5 /* inter-600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "inter-600.ttf"; sourceTree = "<group>"; };
+		42190150125D6F9945D3662E /* VaganciaFitness.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = VaganciaFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		463943FC27E51086911BBC5C /* VaganciaFitnessDebugApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaganciaFitnessDebugApp.swift; sourceTree = "<group>"; };
+		470EA690E1F40DBB360FD542 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		4D501148371AD5F02B23B67A /* ActivityViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViews.swift; sourceTree = "<group>"; };
+		545C676023F9CA3132ECC3FD /* .swift-format */ = {isa = PBXFileReference; path = ".swift-format"; sourceTree = "<group>"; };
+		55E85002BB5AC0AE8E6EFF31 /* ProgramViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViews.swift; sourceTree = "<group>"; };
+		5811BE509DC6C8F77C7185FD /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		5A2649869AB36FE09BBE7AF2 /* WorkoutFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFlowView.swift; sourceTree = "<group>"; };
+		5B09BD29BDEAAF0692115F13 /* LiveDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDashboardView.swift; sourceTree = "<group>"; };
+		6E1EE3B5508C4167C0528638 /* VaganciaFitnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaganciaFitnessApp.swift; sourceTree = "<group>"; };
+		770F0D9F6F6AFBB6C18271F9 /* WatchText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchText.swift; sourceTree = "<group>"; };
+		773A858ADF17C3AFB31A9072 /* SessionFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFlowTests.swift; sourceTree = "<group>"; };
+		7A125D66976EAD2313203AD9 /* VaganciaFitnessDebugUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VaganciaFitnessDebugUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BCC582205BA8D4FA4C9B350 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		83DF255E7F7E8409F9259B0D /* FitnessBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessBrand.swift; sourceTree = "<group>"; };
+		853556A1323E93AABB94D921 /* inter-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "inter-LICENSE.txt"; sourceTree = "<group>"; };
+		86A7876C0F60E3157D35F3AA /* FitnessKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FitnessKit; path = Packages/FitnessKit; sourceTree = SOURCE_ROOT; };
+		8BC918F27FA4076C8DEEA2A3 /* FTMSDiagnosticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTMSDiagnosticsView.swift; sourceTree = "<group>"; };
+		8C267FA25B2DD3C8A36D8FF7 /* WatchRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRootView.swift; sourceTree = "<group>"; };
+		8CC7C0E78FEC3F5A2B3F3017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		93CB1CE5A8663F1007AD9314 /* VaganciaFitnessWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaganciaFitnessWatchApp.swift; sourceTree = "<group>"; };
+		999AC2AD85C3B05E57A1C52A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A30B063112BC3546C7D8C0C8 /* WatchWorkoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWorkoutService.swift; sourceTree = "<group>"; };
+		A37F2DF1BFFBA922653F4920 /* VaganciaFitnessWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VaganciaFitnessWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A40FEFB7B7CB313197497CEB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A51617577EEA5F2362E957B9 /* InstallationIdentity.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = InstallationIdentity.sh; sourceTree = "<group>"; };
+		A65CCCC31E06DD415970C8E0 /* lekton-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "lekton-LICENSE.txt"; sourceTree = "<group>"; };
+		AACBA807E4FC0DA80F55FE57 /* lekton-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lekton-400.ttf"; sourceTree = "<group>"; };
+		ADD0CCB3CC43EE3159D78FCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B30AF4E4AF79C4651F62D2D1 /* inter-700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "inter-700.ttf"; sourceTree = "<group>"; };
+		B3EFB2CDDCA1976B2CA909DC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		B63E123D3F9386C17DD49884 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		B7952D39C6F2A4CCBCAA1AEB /* font-manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "font-manifest.json"; sourceTree = "<group>"; };
+		B987C9CE5595DCCF199C5BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BE39D73513349BA8A2078BA7 /* HealthKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthKit.entitlements; sourceTree = "<group>"; };
+		C658A6464B75BC538E61D495 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		C719782CCE509050ECD9360F /* VaganciaFitnessUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VaganciaFitnessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7F4E9FE097F3AC19D57D22E /* inter-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "inter-400.ttf"; sourceTree = "<group>"; };
+		CE7C77DD0E4DDB8B76F1CEC5 /* VaganciaFitnessWatchCallbackTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VaganciaFitnessWatchCallbackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A48603DEC9FCEEFED4455A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA719DD0B153A3B103DF761E /* WatchCallbackBoundaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCallbackBoundaryTests.swift; sourceTree = "<group>"; };
+		DBF02408DE2674C6C8C57798 /* FitnessTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTabsView.swift; sourceTree = "<group>"; };
+		E01F6317EC3AFA487146B9D3 /* asimovian-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "asimovian-LICENSE.txt"; sourceTree = "<group>"; };
+		E257496802EC16860F3616C0 /* asimovian-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "asimovian-400.ttf"; sourceTree = "<group>"; };
+		E6B0E65507433DE958E15480 /* WatchHealthQueryCallbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHealthQueryCallbacks.swift; sourceTree = "<group>"; };
+		F168884D4CBB4D6CDC910F2C /* WatchSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSetupView.swift; sourceTree = "<group>"; };
+		FF9D2BBDC37A36C4040F10D0 /* BluetoothDiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDiscoveryView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B5162194285321C8D0EC5BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BB8DB7449DDB1FBC2D22487 /* FitnessCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22EF089494B50CB71D860423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B3618A3961E231BFDBCC92 /* FitnessCore in Frameworks */,
+				DABBEF07F53159247F50FDAC /* FitnessRuntime in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88CF97369D517D42E13C8841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20E8C45C6968955D23506A6A /* FitnessCore in Frameworks */,
+				72C5AFD5EE3AADC9A6396063 /* FitnessRuntime in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D352640C78B9822C644C2468 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC2427FDDCAEA787EE5D3583 /* FitnessCore in Frameworks */,
+				5FF963F05F5E1285C9EA2804 /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		081398BE66207654017E91C8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E257496802EC16860F3616C0 /* asimovian-400.ttf */,
+				E01F6317EC3AFA487146B9D3 /* asimovian-LICENSE.txt */,
+				C7F4E9FE097F3AC19D57D22E /* inter-400.ttf */,
+				41E8DDEED10E4E902D0FABF5 /* inter-600.ttf */,
+				B30AF4E4AF79C4651F62D2D1 /* inter-700.ttf */,
+				853556A1323E93AABB94D921 /* inter-LICENSE.txt */,
+				AACBA807E4FC0DA80F55FE57 /* lekton-400.ttf */,
+				A65CCCC31E06DD415970C8E0 /* lekton-LICENSE.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0C08FB8D7E619E1E37ABEAEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2EF8193978246FDFFCF64EFF /* Assets.xcassets */,
+				07720E92CBD2A1FE7C16A963 /* InfoPlist.xcstrings */,
+				7BCC582205BA8D4FA4C9B350 /* Localizable.xcstrings */,
+				B3EFB2CDDCA1976B2CA909DC /* PrivacyInfo.xcprivacy */,
+				770F0D9F6F6AFBB6C18271F9 /* WatchText.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1BD688CAF8959F6D92283D14 /* VaganciaFitness */ = {
+			isa = PBXGroup;
+			children = (
+				ABE60269DBB8CCE32CFDF454 /* App */,
+				E909E81DBD894932CBE6FA6B /* Features */,
+				D05A910A3D38381844CF473B /* Resources */,
+				C5FB9E644EED0C4000828953 /* UITests */,
+			);
+			path = VaganciaFitness;
+			sourceTree = "<group>";
+		};
+		283871D4B64487F3A7A23611 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42190150125D6F9945D3662E /* VaganciaFitness.app */,
+				2417C5A5F53C602579E16881 /* VaganciaFitnessDebug.app */,
+				7A125D66976EAD2313203AD9 /* VaganciaFitnessDebugUITests.xctest */,
+				C719782CCE509050ECD9360F /* VaganciaFitnessUITests.xctest */,
+				A37F2DF1BFFBA922653F4920 /* VaganciaFitnessWatch.app */,
+				CE7C77DD0E4DDB8B76F1CEC5 /* VaganciaFitnessWatchCallbackTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E067DA902A73B53BC9DA265 /* Brand */ = {
+			isa = PBXGroup;
+			children = (
+				B7952D39C6F2A4CCBCAA1AEB /* font-manifest.json */,
+				1271283AFB90CBCA8790B7BD /* manifest-v8.json */,
+			);
+			path = Brand;
+			sourceTree = "<group>";
+		};
+		46D7DE4C08B20092F90EA961 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				8C267FA25B2DD3C8A36D8FF7 /* WatchRootView.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		4B1C207D0FDC0E4CFD29C047 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ADD0CCB3CC43EE3159D78FCC /* Assets.xcassets */,
+				A40FEFB7B7CB313197497CEB /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4BD302D4F7CB0A7EEC0BBB53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AB339BDF375DFED6C70D9C1 /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61298B1DC88806734D47CEDD /* Diagnostics */ = {
+			isa = PBXGroup;
+			children = (
+				DBF02408DE2674C6C8C57798 /* FitnessTabsView.swift */,
+				8BC918F27FA4076C8DEEA2A3 /* FTMSDiagnosticsView.swift */,
+				5B09BD29BDEAAF0692115F13 /* LiveDashboardView.swift */,
+				5811BE509DC6C8F77C7185FD /* SessionView.swift */,
+			);
+			path = Diagnostics;
+			sourceTree = "<group>";
+		};
+		64743F4CC5EBEB1641EBAA9A /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				1BD688CAF8959F6D92283D14 /* VaganciaFitness */,
+				C55CC58F476BBD5FCE873992 /* VaganciaFitnessDebug */,
+				FF5DFF6AC98D20D943CFDAB4 /* VaganciaFitnessWatch */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		65719974D825FD69FD755E00 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				FF9D2BBDC37A36C4040F10D0 /* BluetoothDiscoveryView.swift */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		67A1DD1202921BDDD5BA95BF /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				61298B1DC88806734D47CEDD /* Diagnostics */,
+				65719974D825FD69FD755E00 /* Discovery */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		6DFC063CA3CEC83924CD5E6D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				86A7876C0F60E3157D35F3AA /* FitnessKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		6EE3F9C5F3F62F9AEE14D7BA /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				773A858ADF17C3AFB31A9072 /* SessionFlowTests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		8E710CC0EA868091B37C8F79 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8CC7C0E78FEC3F5A2B3F3017 /* Info.plist */,
+				463943FC27E51086911BBC5C /* VaganciaFitnessDebugApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A3B96843B056490949D5ECFA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DA719DD0B153A3B103DF761E /* WatchCallbackBoundaryTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		A60D027288E67B04FCA1A676 = {
+			isa = PBXGroup;
+			children = (
+				545C676023F9CA3132ECC3FD /* .swift-format */,
+				999AC2AD85C3B05E57A1C52A /* README.md */,
+				64743F4CC5EBEB1641EBAA9A /* Apps */,
+				AD351F10BD3515B1BD2E3607 /* Config */,
+				6DFC063CA3CEC83924CD5E6D /* Packages */,
+				4BD302D4F7CB0A7EEC0BBB53 /* Frameworks */,
+				283871D4B64487F3A7A23611 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABE60269DBB8CCE32CFDF454 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				83DF255E7F7E8409F9259B0D /* FitnessBrand.swift */,
+				27F04EC8C1B9A6DD2CCD365D /* Info.plist */,
+				6E1EE3B5508C4167C0528638 /* VaganciaFitnessApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AD351F10BD3515B1BD2E3607 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C658A6464B75BC538E61D495 /* Development.xcconfig */,
+				BE39D73513349BA8A2078BA7 /* HealthKit.entitlements */,
+				A51617577EEA5F2362E957B9 /* InstallationIdentity.sh */,
+				0192DEA41FF85CA24EC40EAD /* Local.xcconfig.example */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		BC5171B393996194A75F563E /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				F168884D4CBB4D6CDC910F2C /* WatchSetupView.swift */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		BF1E855780BAFF047F9BD6B5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E6B0E65507433DE958E15480 /* WatchHealthQueryCallbacks.swift */,
+				A30B063112BC3546C7D8C0C8 /* WatchWorkoutService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C55CC58F476BBD5FCE873992 /* VaganciaFitnessDebug */ = {
+			isa = PBXGroup;
+			children = (
+				8E710CC0EA868091B37C8F79 /* App */,
+				67A1DD1202921BDDD5BA95BF /* Features */,
+				4B1C207D0FDC0E4CFD29C047 /* Resources */,
+				6EE3F9C5F3F62F9AEE14D7BA /* UITests */,
+			);
+			path = VaganciaFitnessDebug;
+			sourceTree = "<group>";
+		};
+		C5FB9E644EED0C4000828953 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				16CA9609DDB381413FC61729 /* VaganciaFitnessUITests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		D05A910A3D38381844CF473B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D6A48603DEC9FCEEFED4455A /* Assets.xcassets */,
+				470EA690E1F40DBB360FD542 /* InfoPlist.xcstrings */,
+				B63E123D3F9386C17DD49884 /* Localizable.xcstrings */,
+				29031543D5965DAAD274BE44 /* PrivacyInfo.xcprivacy */,
+				3E067DA902A73B53BC9DA265 /* Brand */,
+				081398BE66207654017E91C8 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E909E81DBD894932CBE6FA6B /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				4D501148371AD5F02B23B67A /* ActivityViews.swift */,
+				31EF743A1207EEE65E29400F /* HomeView.swift */,
+				55E85002BB5AC0AE8E6EFF31 /* ProgramViews.swift */,
+				08B353185F4F45D7723FF0D5 /* SettingsView.swift */,
+				5A2649869AB36FE09BBE7AF2 /* WorkoutFlowView.swift */,
+				1EDB332A231FEBD0ED26A42F /* WorkoutShareCard.swift */,
+				BC5171B393996194A75F563E /* Watch */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		EBBB9F1E7738200BC7591845 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B987C9CE5595DCCF199C5BFC /* Info.plist */,
+				93CB1CE5A8663F1007AD9314 /* VaganciaFitnessWatchApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FF5DFF6AC98D20D943CFDAB4 /* VaganciaFitnessWatch */ = {
+			isa = PBXGroup;
+			children = (
+				EBBB9F1E7738200BC7591845 /* App */,
+				46D7DE4C08B20092F90EA961 /* Features */,
+				0C08FB8D7E619E1E37ABEAEA /* Resources */,
+				BF1E855780BAFF047F9BD6B5 /* Services */,
+				A3B96843B056490949D5ECFA /* Tests */,
+			);
+			path = VaganciaFitnessWatch;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EAFAAA875CB6C3600422F66 /* VaganciaFitnessWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 974262E8EBDE319305847559 /* Build configuration list for PBXNativeTarget "VaganciaFitnessWatch" */;
+			buildPhases = (
+				230367F75371969BDE525DCB /* Sources */,
+				C87A385560CEEDA9D9AEEDD2 /* Resources */,
+				0B5162194285321C8D0EC5BF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VaganciaFitnessWatch;
+			packageProductDependencies = (
+				27AC55A1E4E4ADF46E9EC2D2 /* FitnessCore */,
+			);
+			productName = VaganciaFitnessWatch;
+			productReference = A37F2DF1BFFBA922653F4920 /* VaganciaFitnessWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2AE746916C7AA418B8060FBE /* VaganciaFitnessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F8737E5ABFF46BE0292C25D /* Build configuration list for PBXNativeTarget "VaganciaFitnessUITests" */;
+			buildPhases = (
+				331F44E1D935CE9953DC8582 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				808F828F03ACBAF5B3D5C0C3 /* PBXTargetDependency */,
+			);
+			name = VaganciaFitnessUITests;
+			packageProductDependencies = (
+			);
+			productName = VaganciaFitnessUITests;
+			productReference = C719782CCE509050ECD9360F /* VaganciaFitnessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		9B6E081D31F023693F538F8F /* VaganciaFitness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C10C4DC23DE8987ABC90D6B /* Build configuration list for PBXNativeTarget "VaganciaFitness" */;
+			buildPhases = (
+				B638A51A3C97A0E3015BC628 /* Sources */,
+				C3CE8D4CBD68BC02CBB0C859 /* Resources */,
+				22EF089494B50CB71D860423 /* Frameworks */,
+				123C45CEF3F6EB87384850D2 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61CF601C89C43969F6B65234 /* PBXTargetDependency */,
+			);
+			name = VaganciaFitness;
+			packageProductDependencies = (
+				3C0ACE4D9808BEFF1CCC5EC9 /* FitnessCore */,
+				86EA64CF28397819489CB9D5 /* FitnessRuntime */,
+			);
+			productName = VaganciaFitness;
+			productReference = 42190150125D6F9945D3662E /* VaganciaFitness.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B0CD6F4A6A74C79F124B2015 /* VaganciaFitnessDebug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28E7BC18DB50EAC4DA75949B /* Build configuration list for PBXNativeTarget "VaganciaFitnessDebug" */;
+			buildPhases = (
+				364325B2C31CE687E7DDFAB0 /* Sources */,
+				3001801ABC237E650A1A4004 /* Resources */,
+				88CF97369D517D42E13C8841 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VaganciaFitnessDebug;
+			packageProductDependencies = (
+				9ABC5709D1F153CAB3160F13 /* FitnessCore */,
+				DD1C68ACD8D16D1C9734BA4A /* FitnessRuntime */,
+			);
+			productName = VaganciaFitnessDebug;
+			productReference = 2417C5A5F53C602579E16881 /* VaganciaFitnessDebug.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D9EAD2FFBC9374F0BEC35687 /* VaganciaFitnessDebugUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E538E94F2FA77B2B14B9B322 /* Build configuration list for PBXNativeTarget "VaganciaFitnessDebugUITests" */;
+			buildPhases = (
+				2F37BEE8B353FAC6D86528F1 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80D099F5A987644D834C881E /* PBXTargetDependency */,
+			);
+			name = VaganciaFitnessDebugUITests;
+			packageProductDependencies = (
+			);
+			productName = VaganciaFitnessDebugUITests;
+			productReference = 7A125D66976EAD2313203AD9 /* VaganciaFitnessDebugUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E4A96F69A447969DBEDF01A8 /* VaganciaFitnessWatchCallbackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E7A74AC415EB150AD848B59 /* Build configuration list for PBXNativeTarget "VaganciaFitnessWatchCallbackTests" */;
+			buildPhases = (
+				0AF4D45FB3E65DE3FCCE3E2C /* Sources */,
+				D352640C78B9822C644C2468 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VaganciaFitnessWatchCallbackTests;
+			packageProductDependencies = (
+				DF407F4325DF27E5BF0A2DCA /* FitnessCore */,
+			);
+			productName = VaganciaFitnessWatchCallbackTests;
+			productReference = CE7C77DD0E4DDB8B76F1CEC5 /* VaganciaFitnessWatchCallbackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BED3FAF2D1E984513DEDEEA1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0EAFAAA875CB6C3600422F66 = {
+						ProvisioningStyle = Automatic;
+					};
+					2AE746916C7AA418B8060FBE = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9B6E081D31F023693F538F8F;
+					};
+					9B6E081D31F023693F538F8F = {
+						ProvisioningStyle = Automatic;
+					};
+					B0CD6F4A6A74C79F124B2015 = {
+						ProvisioningStyle = Automatic;
+					};
+					D9EAD2FFBC9374F0BEC35687 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = B0CD6F4A6A74C79F124B2015;
+					};
+					E4A96F69A447969DBEDF01A8 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 59084294280E8FEE2E36849A /* Build configuration list for PBXProject "VaganciaFitness" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = es;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				es,
+			);
+			mainGroup = A60D027288E67B04FCA1A676;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				850AEF42CE41201D73FE7D89 /* XCLocalSwiftPackageReference "Packages/FitnessKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B6E081D31F023693F538F8F /* VaganciaFitness */,
+				B0CD6F4A6A74C79F124B2015 /* VaganciaFitnessDebug */,
+				D9EAD2FFBC9374F0BEC35687 /* VaganciaFitnessDebugUITests */,
+				2AE746916C7AA418B8060FBE /* VaganciaFitnessUITests */,
+				0EAFAAA875CB6C3600422F66 /* VaganciaFitnessWatch */,
+				E4A96F69A447969DBEDF01A8 /* VaganciaFitnessWatchCallbackTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3001801ABC237E650A1A4004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A34CADF35FCDC32500CD85CE /* Assets.xcassets in Resources */,
+				B08B0F5A9E6BCA83FE269B78 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3CE8D4CBD68BC02CBB0C859 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E80B573D53E2792714DAE335 /* Assets.xcassets in Resources */,
+				FE5F2E511DB13BE36E423089 /* InfoPlist.xcstrings in Resources */,
+				4FC7F1D41B28F1D13BC622E6 /* Localizable.xcstrings in Resources */,
+				8E79C77C7B1CD5ED4023DC26 /* PrivacyInfo.xcprivacy in Resources */,
+				E70B4566CFC2A02BBBE91CAD /* asimovian-400.ttf in Resources */,
+				174C042E87B266FCBA2ABF1D /* asimovian-LICENSE.txt in Resources */,
+				16693368F8BFE6A852A8829A /* font-manifest.json in Resources */,
+				DB62F2322BAB079C749CDD05 /* inter-400.ttf in Resources */,
+				508C812E73E979137766DDDF /* inter-600.ttf in Resources */,
+				EC37A7CBE285B093728C33E1 /* inter-700.ttf in Resources */,
+				F72245EDE660FA25DA30FD12 /* inter-LICENSE.txt in Resources */,
+				3A16A63DA5BEB385538B84F2 /* lekton-400.ttf in Resources */,
+				7797E1D192A4DC19DEE089D9 /* lekton-LICENSE.txt in Resources */,
+				ADAFBEAB08DA26A21881C0EC /* manifest-v8.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C87A385560CEEDA9D9AEEDD2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C9128E456A3ED5AB5BDB45 /* Assets.xcassets in Resources */,
+				1832B0C1D23CE32D8F7DBB8E /* InfoPlist.xcstrings in Resources */,
+				2279079C4CB09DCE7262844C /* Localizable.xcstrings in Resources */,
+				0654D6C0F1E887D68A635942 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0AF4D45FB3E65DE3FCCE3E2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8975AC73A28BFD0498ECFF96 /* WatchCallbackBoundaryTests.swift in Sources */,
+				1212F4CA205E0A9772434563 /* WatchHealthQueryCallbacks.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230367F75371969BDE525DCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C363F807C89D8716841F17E /* VaganciaFitnessWatchApp.swift in Sources */,
+				2F8B4C2D38861B399DD57B8F /* WatchHealthQueryCallbacks.swift in Sources */,
+				5483711DA60F97743A9C9539 /* WatchRootView.swift in Sources */,
+				7351326EE0BAF21A5EFB74F4 /* WatchText.swift in Sources */,
+				359A5CEFF6B3EAD2B8BDEB9F /* WatchWorkoutService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F37BEE8B353FAC6D86528F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64FA749B56CECBE8F5592C77 /* SessionFlowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		331F44E1D935CE9953DC8582 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DDF3E75017454EF81C4EE00 /* VaganciaFitnessUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364325B2C31CE687E7DDFAB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CADC4A4960AA30664D72E3A /* BluetoothDiscoveryView.swift in Sources */,
+				8021EE5ABD628DDB7F363A20 /* FTMSDiagnosticsView.swift in Sources */,
+				072B3B02216FF0A852E94DD8 /* FitnessTabsView.swift in Sources */,
+				384FCCDE6D2BBDB812715B74 /* LiveDashboardView.swift in Sources */,
+				2000B15730427F95BB69D2D4 /* SessionView.swift in Sources */,
+				54BC1B65C937A5E04590372E /* VaganciaFitnessDebugApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B638A51A3C97A0E3015BC628 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D125765B8F51270859CD0125 /* ActivityViews.swift in Sources */,
+				F1F43F349849164A0715B030 /* FitnessBrand.swift in Sources */,
+				654BBFD7BC0998A4A8D8D6B7 /* HomeView.swift in Sources */,
+				48A68D72547B04B50E7643A9 /* ProgramViews.swift in Sources */,
+				A6637AEE1D7CE96ACA87D02D /* SettingsView.swift in Sources */,
+				378B7F08C6210D8FAD6C6FF1 /* VaganciaFitnessApp.swift in Sources */,
+				0A40FABF50A43119598C7F00 /* WatchSetupView.swift in Sources */,
+				6EB96F6979F65BC196F354C3 /* WorkoutFlowView.swift in Sources */,
+				6B5B43AFF4DC2E03C5806E34 /* WorkoutShareCard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61CF601C89C43969F6B65234 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EAFAAA875CB6C3600422F66 /* VaganciaFitnessWatch */;
+			targetProxy = 3EE94E7626C215634D21E13C /* PBXContainerItemProxy */;
+		};
+		808F828F03ACBAF5B3D5C0C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B6E081D31F023693F538F8F /* VaganciaFitness */;
+			targetProxy = 839C1CAAE18889F8D3901DE6 /* PBXContainerItemProxy */;
+		};
+		80D099F5A987644D834C881E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0CD6F4A6A74C79F124B2015 /* VaganciaFitnessDebug */;
+			targetProxy = AC82D2DEA73DF448736F80D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1293F1FA36CEDD19E305643C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Apps/VaganciaFitnessDebug/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VAGANCIA FITNESS Debug";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Buscar y conectar tu caminadora para explorar sus servicios Bluetooth y guardar el diagnóstico.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_DEBUG_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53DD98BD87ED8E79D6F47892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/HealthKit.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Apps/VaganciaFitness/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VAGANCIA FITNESS";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Conectar tu caminadora para registrar entrenamientos y controlar sus objetivos cuando tú lo solicites.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 0.8.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B2D67EFC1F6F6402C83E581 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/HealthKit.entitlements;
+				CURRENT_PROJECT_VERSION = 17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Apps/VaganciaFitnessWatch/App/Info.plist;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 0.8.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_WATCH_BUNDLE_ID)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		874202A2ECE42EACC1430AFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_UI_TESTS_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VaganciaFitness;
+			};
+			name = Debug;
+		};
+		8F400F531CE7C7058AC216EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_DEBUG_UI_TESTS_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VaganciaFitnessDebug;
+			};
+			name = Debug;
+		};
+		9247213D9777C1988DA5F92C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Apps/VaganciaFitnessDebug/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VAGANCIA FITNESS Debug";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Buscar y conectar tu caminadora para explorar sus servicios Bluetooth y guardar el diagnóstico.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_DEBUG_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A77FEF8FD291E8007C0CFA46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_WATCH_CALLBACK_TESTS_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B976B80EE4ED6BBAE77DCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C658A6464B75BC538E61D495 /* Development.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 12;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.7.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VAGANCIAFITNESS_BUNDLE_ID = dev.openfitness.kraziel.app;
+				VAGANCIAFITNESS_DEBUG_BUNDLE_ID = dev.openfitness.diagnostics;
+				VAGANCIAFITNESS_DEBUG_UI_TESTS_BUNDLE_ID = dev.openfitness.diagnostics.uitests;
+				VAGANCIAFITNESS_UI_TESTS_BUNDLE_ID = dev.openfitness.kraziel.app.uitests;
+				VAGANCIAFITNESS_WATCH_BUNDLE_ID = dev.openfitness.kraziel.app.watchkitapp;
+				VAGANCIAFITNESS_WATCH_CALLBACK_TESTS_BUNDLE_ID = dev.openfitness.kraziel.watchcallbacks.tests;
+			};
+			name = Debug;
+		};
+		BA478B55D7E71E95F59CDFE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/HealthKit.entitlements;
+				CURRENT_PROJECT_VERSION = 17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Apps/VaganciaFitnessWatch/App/Info.plist;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 0.8.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_WATCH_BUNDLE_ID)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+		C03D22344179812ACD5F36CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/HealthKit.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Apps/VaganciaFitness/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VAGANCIA FITNESS";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Conectar tu caminadora para registrar entrenamientos y controlar sus objetivos cuando tú lo solicites.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 0.8.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C218DA85B6D0A0C7397832CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_DEBUG_UI_TESTS_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VaganciaFitnessDebug;
+			};
+			name = Release;
+		};
+		CA699A4C1274923A6B90ABD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_UI_TESTS_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VaganciaFitness;
+			};
+			name = Release;
+		};
+		CB65E2D02BD02B62845D5975 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VAGANCIAFITNESS_WATCH_CALLBACK_TESTS_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FEF7F82415CDA1D6D85A6DDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C658A6464B75BC538E61D495 /* Development.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 12;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VAGANCIAFITNESS_BUNDLE_ID = dev.openfitness.kraziel.app;
+				VAGANCIAFITNESS_DEBUG_BUNDLE_ID = dev.openfitness.diagnostics;
+				VAGANCIAFITNESS_DEBUG_UI_TESTS_BUNDLE_ID = dev.openfitness.diagnostics.uitests;
+				VAGANCIAFITNESS_UI_TESTS_BUNDLE_ID = dev.openfitness.kraziel.app.uitests;
+				VAGANCIAFITNESS_WATCH_BUNDLE_ID = dev.openfitness.kraziel.app.watchkitapp;
+				VAGANCIAFITNESS_WATCH_CALLBACK_TESTS_BUNDLE_ID = dev.openfitness.kraziel.watchcallbacks.tests;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28E7BC18DB50EAC4DA75949B /* Build configuration list for PBXNativeTarget "VaganciaFitnessDebug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1293F1FA36CEDD19E305643C /* Debug */,
+				9247213D9777C1988DA5F92C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		59084294280E8FEE2E36849A /* Build configuration list for PBXProject "VaganciaFitness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B976B80EE4ED6BBAE77DCE31 /* Debug */,
+				FEF7F82415CDA1D6D85A6DDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8C10C4DC23DE8987ABC90D6B /* Build configuration list for PBXNativeTarget "VaganciaFitness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53DD98BD87ED8E79D6F47892 /* Debug */,
+				C03D22344179812ACD5F36CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8E7A74AC415EB150AD848B59 /* Build configuration list for PBXNativeTarget "VaganciaFitnessWatchCallbackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77FEF8FD291E8007C0CFA46 /* Debug */,
+				CB65E2D02BD02B62845D5975 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8F8737E5ABFF46BE0292C25D /* Build configuration list for PBXNativeTarget "VaganciaFitnessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				874202A2ECE42EACC1430AFC /* Debug */,
+				CA699A4C1274923A6B90ABD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		974262E8EBDE319305847559 /* Build configuration list for PBXNativeTarget "VaganciaFitnessWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B2D67EFC1F6F6402C83E581 /* Debug */,
+				BA478B55D7E71E95F59CDFE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E538E94F2FA77B2B14B9B322 /* Build configuration list for PBXNativeTarget "VaganciaFitnessDebugUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F400F531CE7C7058AC216EB /* Debug */,
+				C218DA85B6D0A0C7397832CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		850AEF42CE41201D73FE7D89 /* XCLocalSwiftPackageReference "Packages/FitnessKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/FitnessKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		27AC55A1E4E4ADF46E9EC2D2 /* FitnessCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FitnessCore;
+		};
+		3C0ACE4D9808BEFF1CCC5EC9 /* FitnessCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FitnessCore;
+		};
+		86EA64CF28397819489CB9D5 /* FitnessRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FitnessRuntime;
+		};
+		9ABC5709D1F153CAB3160F13 /* FitnessCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FitnessCore;
+		};
+		DD1C68ACD8D16D1C9734BA4A /* FitnessRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FitnessRuntime;
+		};
+		DF407F4325DF27E5BF0A2DCA /* FitnessCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FitnessCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = BED3FAF2D1E984513DEDEEA1 /* Project object */;
+}

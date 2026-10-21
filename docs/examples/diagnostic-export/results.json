@@ -1,0 +1,26 @@
+{
+  "sessionId": "example-session-001",
+  "source": "synthetic",
+  "capabilities": [
+    { "id": "speedControl", "declaration": "unknown", "observations": [], "evidenceEventIds": [] }
+  ],
+  "tests": [
+    {
+      "testId": "example-start-test",
+      "procedureId": "start",
+      "procedureVersion": "1.0",
+      "protocol": null,
+      "parameters": {},
+      "status": "notRun",
+      "verification": {
+        "transport": "notRun",
+        "protocol": "notRun",
+        "telemetry": "notRun",
+        "physicalObservation": "notRun"
+      },
+      "operatorObservation": null,
+      "evidenceEventIds": [],
+      "reason": "Example without hardware or command execution."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "family": "asimovian",
+    "weight": 400,
+    "source": "@fontsource/asimovian/files/asimovian-latin-400-normal.woff",
+    "sourceSHA256": "f4436adb74c5e14d5869904c04a3f5300c67ef96700b345bb7b6615886d78d75",
+    "ttf": "apple/Apps/VaganciaFitness/Resources/Fonts/asimovian-400.ttf",
+    "ttfSHA256": "e32f2a74e8e037ed32ee9fa97d607f5f6bdf04ea368c88d5fb429380f8a97e48",
+    "method": "WOFF1 sfnt table decompression; outline tables unchanged; checksum recalculated",
+    "embeddedVersionNames": [
+      "Version 3.000; ttfautohint (v1.8.4.7-5d5b)"
+    ],
+    "sourcePackage": "@fontsource/asimovian",
+    "sourcePackageVersion": "5.3.0",
+    "sourcePackageURL": "https://registry.npmjs.org/@fontsource/asimovian/5.3.0",
+    "sourcePackageTarball": "https://registry.npmjs.org/@fontsource/asimovian/-/asimovian-5.3.0.tgz",
+    "sourcePackageIntegrity": "sha512-BONo78uIhUYqMFqU8l4TSF3YZeFB5t8CiW4I0XDcbRTY1VljVWt7/fnetJmum0/xG/HGQZfg6yVzjdHF5hirTQ==",
+    "licenseSHA256": "4fffcc884fa3f838e20f1aa35c664d68d7a5701daa9117192c191ce2770f3b81"
+  },
+  {
+    "family": "inter",
+    "weight": 400,
+    "source": "@fontsource/inter/files/inter-latin-400-normal.woff",
+    "sourceSHA256": "e20fa0b4fd2dd26e4d14b3ac3cc922509c3a63fa5e910e90c614544aa042dd45",
+    "ttf": "apple/Apps/VaganciaFitness/Resources/Fonts/inter-400.ttf",
+    "ttfSHA256": "27396a89e10048c8e76096b1b4a5500bdc54d3b04d200f267ed6bf0d5466b2ba",
+    "method": "WOFF1 sfnt table decompression; outline tables unchanged; checksum recalculated",
+    "embeddedVersionNames": [
+      "Version 4.001;git-66647c0bb"
+    ],
+    "sourcePackage": "@fontsource/inter",
+    "sourcePackageVersion": "5.3.0",
+    "sourcePackageURL": "https://registry.npmjs.org/@fontsource/inter/5.3.0",
+    "sourcePackageTarball": "https://registry.npmjs.org/@fontsource/inter/-/inter-5.3.0.tgz",
+    "sourcePackageIntegrity": "sha512-RofMylZmjlJEfELXeNHFWBRcSs75rGU/6bV2S2jfnvv/3rPXPGe0LgUJTklcHZ9lM4OZmAVFhcJPnACfb91A3g==",
+    "licenseSHA256": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345"
+  },
+  {
+    "family": "inter",
+    "weight": 600,
+    "source": "@fontsource/inter/files/inter-latin-600-normal.woff",
+    "sourceSHA256": "6a9cb3a509b4eeaf12b7dda6c4aacac3e85d07f4201bf4dd716e332e692b87bd",
+    "ttf": "apple/Apps/VaganciaFitness/Resources/Fonts/inter-600.ttf",
+    "ttfSHA256": "85c5903688f4329aaeebfc050fe6c3cb373f75ef1ff0a6f68d2640a870573584",
+    "method": "WOFF1 sfnt table decompression; outline tables unchanged; checksum recalculated",
+    "embeddedVersionNames": [
+      "Version 4.001;git-66647c0bb"
+    ],
+    "sourcePackage": "@fontsource/inter",
+    "sourcePackageVersion": "5.3.0",
+    "sourcePackageURL": "https://registry.npmjs.org/@fontsource/inter/5.3.0",
+    "sourcePackageTarball": "https://registry.npmjs.org/@fontsource/inter/-/inter-5.3.0.tgz",
+    "sourcePackageIntegrity": "sha512-RofMylZmjlJEfELXeNHFWBRcSs75rGU/6bV2S2jfnvv/3rPXPGe0LgUJTklcHZ9lM4OZmAVFhcJPnACfb91A3g==",
+    "licenseSHA256": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345"
+  },
+  {
+    "family": "inter",
+    "weight": 700,
+    "source": "@fontsource/inter/files/inter-latin-700-normal.woff",
+    "sourceSHA256": "7c5ed5655730de337704d3fc94628515cd7e3d8d32368871709bf56ac0397e7a",
+    "ttf": "apple/Apps/VaganciaFitness/Resources/Fonts/inter-700.ttf",
+    "ttfSHA256": "286fd42c6364594401ef80f2d1791fff4f77c00f9231895dcf336d76cd4e4650",
+    "method": "WOFF1 sfnt table decompression; outline tables unchanged; checksum recalculated",
+    "embeddedVersionNames": [
+      "Version 4.001;git-66647c0bb"
+    ],
+    "sourcePackage": "@fontsource/inter",
+    "sourcePackageVersion": "5.3.0",
+    "sourcePackageURL": "https://registry.npmjs.org/@fontsource/inter/5.3.0",
+    "sourcePackageTarball": "https://registry.npmjs.org/@fontsource/inter/-/inter-5.3.0.tgz",
+    "sourcePackageIntegrity": "sha512-RofMylZmjlJEfELXeNHFWBRcSs75rGU/6bV2S2jfnvv/3rPXPGe0LgUJTklcHZ9lM4OZmAVFhcJPnACfb91A3g==",
+    "licenseSHA256": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345"
+  },
+  {
+    "family": "lekton",
+    "weight": 400,
+    "source": "@fontsource/lekton/files/lekton-latin-400-normal.woff",
+    "sourceSHA256": "e5b52c1f27e2bc474b7b4f7324c0cd1c9fece55802030a8105bdb34da3e2a36e",
+    "ttf": "apple/Apps/VaganciaFitness/Resources/Fonts/lekton-400.ttf",
+    "ttfSHA256": "850cddf90b690b6b20a971fef3741f4942274819c3e6957da9bd701e5ea70c48",
+    "method": "WOFF1 sfnt table decompression; outline tables unchanged; checksum recalculated",
+    "embeddedVersionNames": [
+      "Version 34.000"
+    ],
+    "sourcePackage": "@fontsource/lekton",
+    "sourcePackageVersion": "5.3.0",
+    "sourcePackageURL": "https://registry.npmjs.org/@fontsource/lekton/5.3.0",
+    "sourcePackageTarball": "https://registry.npmjs.org/@fontsource/lekton/-/lekton-5.3.0.tgz",
+    "sourcePackageIntegrity": "sha512-pNhB93j/1OHAAMR0lQLpjh/BGLY3u3MKlHEf23HMbf3HleKoM5+ZywVpJUs9ROQ0872gep1wmqjBijXHYzMOQg==",
+    "licenseSHA256": "624af70fe6222dcaf681927fd991c7719fb745592936c9dd148a2f93b62e34a4"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "sourceType": "CoreDevice app-container snapshots; events are app-recorded observations of connected hardware",
+  "sourcePhone": "Sanitized hardware-derived regression fixture; private original retained outside the public set.",
+  "sourceWatch": "Sanitized hardware-derived regression fixture; private original retained outside the public set.",
+  "sourceAnalysis": "Sanitized hardware-derived regression fixture; private original retained outside the public set.",
+  "sessions": [
+    {
+      "id": "2a1cc3b1-20ba-5837-bc58-6447a3550346",
+      "runningUTC": "2000-01-03T23:27:30.250Z",
+      "captureRequestedUTC": "2000-01-03T23:28:42.021Z",
+      "watchSamples": 76,
+      "watchAcknowledgedSamples": 76
+    },
+    {
+      "id": "3ed006c6-35bb-5384-b9fa-c3016c4b0ef0",
+      "runningUTC": "2000-01-03T23:35:32.939Z",
+      "captureRequestedUTC": "2000-01-03T23:35:47.940Z",
+      "watchSamples": 65,
+      "watchAcknowledgedSamples": 65
+    }
+  ],
+  "receiveUniqueFailures": 194,
+  "rejectedEnvelopeRecovered": false,
+  "sanitization": {
+    "kind": "hardware-derived",
+    "identifiers": "stable fictional IDs",
+    "timestamps": "shifted; relative intervals retained",
+    "originals": "not required to build or test"
+  }
+}

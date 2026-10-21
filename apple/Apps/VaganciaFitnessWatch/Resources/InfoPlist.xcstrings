@@ -1,0 +1,40 @@
+{
+  "sourceLanguage": "es",
+  "strings": {
+    "NSHealthShareUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registrar y mostrar tu pulso y energía durante los entrenamientos de caminadora."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Record and display your heart rate and energy during treadmill workouts."
+          }
+        }
+      }
+    },
+    "NSHealthUpdateUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar en Salud una sesión con la distancia recibida de la caminadora y las métricas estimadas por el Watch."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save a workout to Health with the distance received from the treadmill and metrics estimated by your Watch."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

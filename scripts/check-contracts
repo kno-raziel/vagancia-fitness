@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+"""Validate shared corpus and its SwiftPM resource mirrors."""
+import json
+import hashlib
+import sys
+from _repository import ROOT
+
+manifest = json.loads((ROOT / "shared/test-vectors/manifest.json").read_text())
+errors = []
+copies = manifest["copies"] + manifest.get("brandCopies", [])
+for pair in copies:
+    canonical = ROOT / pair["canonical"]
+    mirror = ROOT / pair["copy"]
+    if canonical.read_bytes() != mirror.read_bytes():
+        errors.append(f"Resource mirror differs: {pair['copy']}")
+    if canonical.suffix == ".json":
+        json.loads(canonical.read_text())
+for path in (ROOT / "shared").rglob("*.json"):
+    json.loads(path.read_text())
+fonts = json.loads((ROOT / "apple/Apps/VaganciaFitness/Resources/Brand/font-manifest.json").read_text())
+for font in fonts:
+    output = ROOT / font["ttf"]
+    if hashlib.sha256(output.read_bytes()).hexdigest() != font["ttfSHA256"]:
+        errors.append(f"Font checksum differs: {font['ttf']}")
+    license_path = output.parent / f"{font['family']}-LICENSE.txt"
+    if not license_path.exists() or "SIL OPEN FONT LICENSE" not in license_path.read_text():
+        errors.append(f"Missing OFL notice for {font['family']}")
+if errors:
+    print("\n".join(errors), file=sys.stderr)
+    sys.exit(1)
+print(f"Contracts: JSON valid; {len(copies)} resource mirrors identical; {len(fonts)} fonts match hashes and retain OFL notices.")

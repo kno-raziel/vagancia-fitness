@@ -1,0 +1,97 @@
+name: Apple
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  apple:
+    runs-on: macos-26
+    timeout-minutes: 45
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
+      DESTINATION: platform=iOS Simulator,name=iPhone 17 Pro,OS=26.2
+      EXPECTED_XCODE_VERSION: '26.2'
+      EXPECTED_SWIFT_VERSION: '6.2.3'
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Check app and project naming
+        run: ./scripts/check-names
+      - name: Install pinned XcodeGen
+        run: |
+          curl --fail --location --silent --show-error \
+            --output "$RUNNER_TEMP/xcodegen.zip" \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.44.1/xcodegen.zip
+          echo "a2e905fb68446e9bb4008cdfe2e13e3f176d0cbcca828b71770f8e53fca91b73  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 -c -
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP/xcodegen-dist"
+          echo "$RUNNER_TEMP/xcodegen-dist/xcodegen/bin" >> "$GITHUB_PATH"
+      - name: Generate project
+        run: ./apple/scripts/generate-project
+      - name: Confirm the checked-in project matches its specification
+        run: |
+          git diff --exit-code -- \
+            apple/VaganciaFitness.xcodeproj \
+            apple/Apps/VaganciaFitness/App/Info.plist \
+            apple/Apps/VaganciaFitnessDebug/App/Info.plist \
+            apple/Apps/VaganciaFitnessWatch/App/Info.plist
+      - name: Check toolchain and compatible simulator destination
+        run: ./apple/scripts/doctor
+      - name: Check privacy manifest sources
+        run: ./apple/scripts/check-privacy
+      - name: Validate Spanish and English catalogs
+        run: python3 ./apple/scripts/validate-localizations.py
+      - name: Check Swift formatting
+        run: ./apple/scripts/check-format
+      - name: Build product app (Debug)
+        run: ./apple/scripts/build VaganciaFitness
+      - name: Build diagnostics app (Debug)
+        run: ./apple/scripts/build VaganciaFitnessDebug
+      - name: Build Watch app (Debug)
+        run: ./apple/scripts/build VaganciaFitnessWatch
+      - name: Verify compiler-extracted localization keys
+        run: python3 ./apple/scripts/validate-localizations.py --stringsdata-root build/apple/DerivedData/Build/Intermediates.noindex
+      - name: Build all apps (unsigned Release)
+        run: |
+          CONFIGURATION=Release ./apple/scripts/build VaganciaFitness
+          CONFIGURATION=Release ./apple/scripts/build VaganciaFitnessDebug
+          CONFIGURATION=Release ./apple/scripts/build VaganciaFitnessWatch
+      - name: Check privacy manifests in built apps and package bundles
+        run: ./apple/scripts/check-privacy --built-products build/apple/DerivedData/Build/Products
+      - name: Mark setup and build checks complete
+        id: ready
+        run: echo 'complete=true' >> "$GITHUB_OUTPUT"
+      - name: Run Core tests
+        if: ${{ !cancelled() && steps.ready.outputs.complete == 'true' }}
+        run: ./apple/scripts/test core
+      - name: Run Runtime tests
+        if: ${{ !cancelled() && steps.ready.outputs.complete == 'true' }}
+        run: ./apple/scripts/test runtime
+      - name: Run Watch callback tests
+        if: ${{ !cancelled() && steps.ready.outputs.complete == 'true' }}
+        run: ./apple/scripts/test callbacks
+      - name: Run product interface tests
+        if: ${{ !cancelled() && steps.ready.outputs.complete == 'true' }}
+        run: ./apple/scripts/test ui-product
+      - name: Run diagnostics interface tests
+        if: ${{ !cancelled() && steps.ready.outputs.complete == 'true' }}
+        run: ./apple/scripts/test ui-debug
+      - name: Preserve synthetic build and test diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: apple-synthetic-diagnostics
+          path: |
+            build/apple/logs/
+            build/apple/Results/
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,0 +1,53 @@
+# Generated from scripts/_repository.py; do not edit independently.
+# Refresh: python3 scripts/_repository.py --write-gitignore
+# Only classified public roots can enter the future repository.
+/*
+!/.editorconfig
+!/.gitattributes
+!/.gitignore
+!/AGENTS.md
+!/CODE_OF_CONDUCT.md
+!/CONTRIBUTING.md
+!/LICENSE
+!/PRIVACY.md
+!/PRODUCT.md
+!/README.md
+!/SECURITY.md
+!/THIRD_PARTY_NOTICES.md
+!/.github/
+!/android/
+!/apple/
+!/design/
+!/docs/
+!/scripts/
+!/shared/
+!/.impeccable/
+/.impeccable/*
+!/.impeccable/design.json
+# Recreated locally: build outputs, evidence, signing and user state.
+.build/
+.git/
+.local/
+DerivedData/
+FitShowReferences/
+__pycache__/
+artifacts/
+build/
+xcuserdata/
+*.ipa
+*.key
+*.mobileprovision
+*.p12
+*.pem
+*.pfx
+*.pyc
+*.xcarchive
+*.xcresult
+*.xcuserstate
+.DS_Store
+Local.xcconfig
+.env*
+!.env*.example
+# Only the reference policy is public; screenshots/manifests stay private.
+/docs/references/fitshow/*
+!/docs/references/fitshow/README.md

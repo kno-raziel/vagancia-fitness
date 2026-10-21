@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "sessionId": "example-session-001",
+  "source": "synthetic",
+  "startedAt": "2026-10-13T02:00:00.000Z",
+  "endedAt": "2026-10-13T02:00:01.000Z",
+  "isOpen": false,
+  "app": { "version": null, "build": null },
+  "host": { "platform": "iOS", "osVersion": null },
+  "capture": { "truncated": false, "droppedEventCount": 0, "gaps": [] },
+  "files": ["device.json", "results.json", "events.jsonl", "summary.txt"],
+  "notes": "Synthetic documentation example without a hardware connection or command execution."
+}

@@ -1,0 +1,133 @@
+{
+  "source": "hardware",
+  "origin": "Sanitized hardware-derived regression fixture; private original retained outside the public set.",
+  "packets": [
+    {
+      "timestamp": "2000-01-01T00:00:00.000Z",
+      "hex": "8C0500000000000000FF7F0000000000000000",
+      "speed": 0,
+      "distance": 0
+    },
+    {
+      "timestamp": "2000-01-01T00:00:07.972Z",
+      "hex": "8C051E000000000000FF7F0000000000000100",
+      "speed": 0.3,
+      "distance": 0
+    },
+    {
+      "timestamp": "2000-01-01T00:00:08.471Z",
+      "hex": "8C0550000000000000FF7F0000000000000100",
+      "speed": 0.8,
+      "distance": 0
+    },
+    {
+      "timestamp": "2000-01-01T00:00:29.722Z",
+      "hex": "8C0564000000000000FF7F0000000000001600",
+      "speed": 1,
+      "distance": 0
+    },
+    {
+      "timestamp": "2000-01-01T00:00:30.222Z",
+      "hex": "8C0596000000000000FF7F0000000000001700",
+      "speed": 1.5,
+      "distance": 0
+    },
+    {
+      "timestamp": "2000-01-01T00:00:30.721Z",
+      "hex": "8C05C8000A00000000FF7F0000000000001700",
+      "speed": 2,
+      "distance": 10
+    },
+    {
+      "timestamp": "2000-01-01T00:00:48.471Z",
+      "hex": "8C05C8001400000000FF7F0100000000002900",
+      "speed": 2,
+      "distance": 20
+    },
+    {
+      "timestamp": "2000-01-01T00:00:55.097Z",
+      "hex": "8C05D2001400000000FF7F0100000000003000",
+      "speed": 2.1,
+      "distance": 20
+    },
+    {
+      "timestamp": "2000-01-01T00:00:55.598Z",
+      "hex": "8C0504011400000000FF7F0200000000003000",
+      "speed": 2.6,
+      "distance": 20
+    },
+    {
+      "timestamp": "2000-01-01T00:00:56.097Z",
+      "hex": "8C0536011400000000FF7F0200000000003100",
+      "speed": 3.1,
+      "distance": 20
+    },
+    {
+      "timestamp": "2000-01-01T00:00:56.598Z",
+      "hex": "8C0568011400000000FF7F0200000000003100",
+      "speed": 3.6,
+      "distance": 20
+    },
+    {
+      "timestamp": "2000-01-01T00:00:57.098Z",
+      "hex": "8C0590011400000000FF7F0200000000003200",
+      "speed": 4,
+      "distance": 20
+    },
+    {
+      "timestamp": "2000-01-01T00:00:57.597Z",
+      "hex": "8C0590011E00000000FF7F0200000000003200",
+      "speed": 4,
+      "distance": 30
+    },
+    {
+      "timestamp": "2000-01-01T00:01:05.722Z",
+      "hex": "8C0572011E00000000FF7F0200000000003A00",
+      "speed": 3.7,
+      "distance": 30
+    },
+    {
+      "timestamp": "2000-01-01T00:01:06.223Z",
+      "hex": "8C0540011E00000000FF7F0200000000003B00",
+      "speed": 3.2,
+      "distance": 30
+    },
+    {
+      "timestamp": "2000-01-01T00:01:06.723Z",
+      "hex": "8C050E011E00000000FF7F0200000000003B00",
+      "speed": 2.7,
+      "distance": 30
+    },
+    {
+      "timestamp": "2000-01-01T00:01:07.222Z",
+      "hex": "8C05DC001E00000000FF7F0200000000003C00",
+      "speed": 2.2,
+      "distance": 30
+    },
+    {
+      "timestamp": "2000-01-01T00:01:07.722Z",
+      "hex": "8C05C8001E00000000FF7F0200000000003C00",
+      "speed": 2,
+      "distance": 30
+    },
+    {
+      "timestamp": "2000-01-01T00:01:15.849Z",
+      "hex": "8C05C8002800001400FF7F0200000000004400",
+      "speed": 2,
+      "distance": 40
+    },
+    {
+      "timestamp": "2000-01-01T00:01:33.473Z",
+      "hex": "8C05C8003200001400FF7F0300000000005600",
+      "speed": 2,
+      "distance": 50
+    }
+  ],
+  "uninterpretedHex": "0120000000",
+  "sanitization": {
+    "kind": "hardware-derived",
+    "identifiers": "stable fictional IDs",
+    "timestamps": "shifted; relative intervals retained",
+    "originals": "not required to build or test"
+  }
+}

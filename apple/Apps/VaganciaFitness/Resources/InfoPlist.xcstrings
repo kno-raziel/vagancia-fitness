@@ -1,0 +1,57 @@
+{
+  "sourceLanguage": "es",
+  "strings": {
+    "NSBluetoothAlwaysUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectar tu caminadora para registrar entrenamientos y controlar sus objetivos cuando tú lo solicites."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect to your treadmill to record workouts and control its targets when you request it."
+          }
+        }
+      }
+    },
+    "NSHealthShareUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar en el iPhone el pulso, la energía y el entrenamiento capturados con tu Apple Watch."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show the heart rate, energy, and workout recorded by your Apple Watch on your iPhone."
+          }
+        }
+      }
+    },
+    "NSHealthUpdateUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar una única sesión de caminadora con distancia FTMS y métricas de tu Apple Watch."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save one treadmill workout with FTMS distance and metrics from your Apple Watch."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

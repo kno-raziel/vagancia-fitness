@@ -1,0 +1,15 @@
+// Copy this file to Local.xcconfig when you need device signing.
+// Simulator builds and tests work without a Team or Keychain setup.
+// Uncomment and set your own Apple Developer Team only for device signing:
+// DEVELOPMENT_TEAM = YOUR_TEAM_ID
+
+// Forks may choose bundle IDs when generating the project. Set these shell
+// variables on apple/scripts/generate-project; omitted values keep the current
+// app, Watch, Debug, UI-test, and callback-test IDs.
+// VAGANCIAFITNESS_BUNDLE_ID=com.example.vaganciafitness \
+// VAGANCIAFITNESS_DEBUG_BUNDLE_ID=com.example.vaganciafitness.diagnostics \
+// VAGANCIAFITNESS_WATCH_BUNDLE_ID=com.example.vaganciafitness.watchkitapp \
+// VAGANCIAFITNESS_UI_TESTS_BUNDLE_ID=com.example.vaganciafitness.uitests \
+// VAGANCIAFITNESS_DEBUG_UI_TESTS_BUNDLE_ID=com.example.vaganciafitness.diagnostics.uitests \
+// VAGANCIAFITNESS_WATCH_CALLBACK_TESTS_BUNDLE_ID=com.example.vaganciafitness.watchcallbacks.tests \
+// ./apple/scripts/generate-project

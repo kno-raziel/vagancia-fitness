@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+. "$(dirname -- "$0")/_common.sh"
+require_command xcodegen
+. "$APPLE_DIR/Config/InstallationIdentity.sh"
+cd "$APPLE_DIR"
+run_logged generate-project xcodegen generate --spec "$APPLE_DIR/project.yml" --project "$APPLE_DIR"

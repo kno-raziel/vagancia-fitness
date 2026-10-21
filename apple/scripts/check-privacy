@@ -1,0 +1,139 @@
+#!/usr/bin/env python3
+"""Check audited privacy declarations and optionally packaged app resources.
+
+This source-token guard covers Apple's five required-reason API categories; it
+is not a binary analyzer or an App Store privacy-label assessment. Review new
+API uses and data flows against Apple's current primary documentation:
+https://developer.apple.com/documentation/bundleresources/app-privacy-configuration/nsprivacyaccessedapitypes/nsprivacyaccessedapitype
+
+35F9.1 covers in-app timers and elapsed intervals (including exported elapsed
+intervals), CA92.1 app-owned defaults, and C617.1 app-container file metadata.
+Tracking and collected-data declarations describe this local-first code, not a
+claim that HealthKit, Watch transfer or user-initiated exports never handle data.
+"""
+import argparse
+from pathlib import Path
+import plistlib
+import re
+import sys
+
+ROOT = Path(__file__).resolve().parents[2]
+PREFIX = "NSPrivacyAccessedAPICategory"
+REASONS = {"SystemBootTime": "35F9.1", "UserDefaults": "CA92.1", "FileTimestamp": "C617.1"}
+# Include Foundation and Darwin spellings. Comments are removed before matching;
+# a new token requires review even if a compiler condition limits its platform.
+API_PATTERNS = {
+    "SystemBootTime": r"\b(?:systemUptime|mach_absolute_time)\b",
+    "UserDefaults": r"\b(?:UserDefaults|NSUserDefaults|CFPreferences\w*)\b",
+    "FileTimestamp": r"\b(?:creationDate|modificationDate|fileModificationDate|contentModificationDateKey|creationDateKey|stat|fstat|fstatat|lstat|getattrlist|getattrlistbulk|fgetattrlist|getattrlistat)\b",
+    "DiskSpace": r"\b(?:volumeAvailableCapacity\w*|volumeTotalCapacity\w*|systemFreeSize|systemSize|statfs|statvfs|fstatfs|fstatvfs|getattrlist|fgetattrlist|getattrlistat)\b",
+    "ActiveKeyboards": r"\bactiveInputModes\b",
+}
+APPS = {
+    "VaganciaFitness": ("FitnessCore", "FitnessRuntime"),
+    "VaganciaFitnessDebug": ("FitnessCore", "FitnessRuntime"),
+    "VaganciaFitnessWatch": ("FitnessCore",),
+}
+PACKAGE = Path("apple/Packages/FitnessKit/Sources")
+
+
+def source_categories(directory):
+    categories = set()
+    for path in directory.rglob("*.swift"):
+        if {"Tests", "UITests"} & set(path.parts):
+            continue
+        source = re.sub(r"/\*.*?\*/|//[^\n]*", "", path.read_text(), flags=re.S)
+        categories.update(name for name, pattern in API_PATTERNS.items() if re.search(pattern, source))
+    return categories
+
+
+def validate_manifest(path, categories):
+    with path.open("rb") as stream:
+        data = plistlib.load(stream)
+    expected = {
+        "NSPrivacyTracking": False,
+        "NSPrivacyTrackingDomains": [],
+        "NSPrivacyCollectedDataTypes": [],
+        "NSPrivacyAccessedAPITypes": [
+            {"NSPrivacyAccessedAPIType": PREFIX + name, "NSPrivacyAccessedAPITypeReasons": [REASONS[name]]}
+            for name in sorted(categories)
+        ],
+    }
+    # Order within the category array has no plist meaning. Duplicate categories
+    # still fail because the sorted arrays must have the same length/content.
+    actual = dict(data)
+    actual["NSPrivacyAccessedAPITypes"] = sorted(
+        actual.get("NSPrivacyAccessedAPITypes", []), key=lambda item: item["NSPrivacyAccessedAPIType"]
+    )
+    if actual != expected or type(actual.get("NSPrivacyTracking")) is not bool:
+        raise ValueError(f"{path}: declarations differ from audited source use {sorted(categories)}")
+
+
+def check_source(root):
+    package = (root / "apple/Packages/FitnessKit/Package.swift").read_text()
+    module_categories = {}
+    for module in ("FitnessCore", "FitnessRuntime"):
+        directory = root / PACKAGE / module
+        categories = source_categories(directory)
+        unsupported = categories - REASONS.keys()
+        if unsupported:
+            raise ValueError(f"{module}: new required-reason API category needs review: {sorted(unsupported)}")
+        module_categories[module] = categories
+        validate_manifest(directory / "Resources/PrivacyInfo.xcprivacy", categories)
+        target = re.search(r'\.target\(\s*name: "' + module + r'".*?(?=\.target\(|\.testTarget\(|\Z)', package, re.S)
+        if not target or '.process("Resources")' not in target[0]:
+            raise ValueError(f"{module}: SwiftPM target must process Resources")
+    project = (root / "apple/project.yml").read_text()
+    app_categories = {}
+    for app, modules in APPS.items():
+        categories = source_categories(root / "apple/Apps" / app)
+        for module in modules:
+            categories |= module_categories[module]
+        unsupported = categories - REASONS.keys()
+        if unsupported:
+            raise ValueError(f"{app}: new required-reason API category needs review: {sorted(unsupported)}")
+        app_categories[app] = categories
+        validate_manifest(root / "apple/Apps" / app / "Resources/PrivacyInfo.xcprivacy", categories)
+        target = re.search(r'^  ' + app + r':\n(.*?)(?=^  \w+:|\Z)', project, re.M | re.S)
+        if not target or f'path: Apps/{app}\n' not in target[1]:
+            raise ValueError(f"{app}: expected recursive app source/resource inclusion in project.yml")
+        if re.search(r'excludes:.*(?:Resources|xcprivacy)', target[1]):
+            raise ValueError(f"{app}: resource/privacy exclusion requires explicit review")
+    return module_categories, app_categories
+
+
+def check_built_products(directory, module_categories, app_categories):
+    if not directory.is_dir():
+        raise ValueError(f"Build products directory does not exist: {directory}")
+    counts = {}
+    for app, modules in APPS.items():
+        bundles = sorted(directory.rglob(app + ".app"))
+        if not bundles:
+            raise ValueError(f"No {app}.app found beneath {directory}")
+        counts[app] = len(bundles)
+        for bundle in bundles:
+            validate_manifest(bundle / "PrivacyInfo.xcprivacy", app_categories[app])
+            for module in modules:
+                resource = bundle / f"FitnessKit_{module}.bundle" / "PrivacyInfo.xcprivacy"
+                validate_manifest(resource, module_categories[module])
+    return counts
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--built-products", type=Path, help="Build/Products or configuration products directory")
+    args = parser.parse_args()
+    try:
+        modules, apps = check_source(ROOT)
+        print("Privacy: 5 manifests match audited source APIs and resource declarations.")
+        if args.built_products:
+            counts = check_built_products(args.built_products, modules, apps)
+            print("Privacy: packaged app and FitnessKit manifests verified: " + ", ".join(f"{name}={count}" for name, count in counts.items()))
+    except (OSError, ValueError, KeyError, TypeError, plistlib.InvalidFileException) as error:
+        print(f"Privacy check failed: {error}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

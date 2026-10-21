@@ -1,0 +1,40 @@
+name: Bug report
+description: Report a reproducible software problem.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include private diagnostic exports, health data, account details, or device identifiers."
+  - type: input
+    id: version
+    attributes:
+      label: Source revision or local app version
+      placeholder: "Commit SHA, branch, or the version of your local build"
+    validations:
+      required: true
+  - type: dropdown
+    id: app
+    attributes:
+      label: App
+      options:
+        - VaganciaFitness
+        - VaganciaFitnessDebug
+        - VaganciaFitnessWatch
+        - Build tooling or CI
+        - Documentation or shared contracts
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps and expected behavior
+      description: Include a minimal synthetic example where possible.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and evidence type
+      description: State whether this is a software result, synthetic fixture, user report, or physical device observation.
+    validations:
+      required: true

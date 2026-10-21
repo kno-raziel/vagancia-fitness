@@ -1,0 +1,182 @@
+name: VaganciaFitness
+options:
+  minimumXcodeGenVersion: 2.44.0
+  deploymentTarget:
+    iOS: '26.0'
+  createIntermediateGroups: true
+  developmentLanguage: es
+settings:
+  base:
+    SWIFT_VERSION: '6.0'
+    TARGETED_DEVICE_FAMILY: '1'
+    CODE_SIGN_STYLE: Automatic
+    VAGANCIAFITNESS_BUNDLE_ID: ${VAGANCIAFITNESS_BUNDLE_ID}
+    VAGANCIAFITNESS_DEBUG_BUNDLE_ID: ${VAGANCIAFITNESS_DEBUG_BUNDLE_ID}
+    VAGANCIAFITNESS_WATCH_BUNDLE_ID: ${VAGANCIAFITNESS_WATCH_BUNDLE_ID}
+    VAGANCIAFITNESS_UI_TESTS_BUNDLE_ID: ${VAGANCIAFITNESS_UI_TESTS_BUNDLE_ID}
+    VAGANCIAFITNESS_DEBUG_UI_TESTS_BUNDLE_ID: ${VAGANCIAFITNESS_DEBUG_UI_TESTS_BUNDLE_ID}
+    VAGANCIAFITNESS_WATCH_CALLBACK_TESTS_BUNDLE_ID: ${VAGANCIAFITNESS_WATCH_CALLBACK_TESTS_BUNDLE_ID}
+    MARKETING_VERSION: '0.7.0'
+    CURRENT_PROJECT_VERSION: '12'
+configFiles:
+  Debug: Config/Development.xcconfig
+  Release: Config/Development.xcconfig
+packages:
+  FitnessKit:
+    path: Packages/FitnessKit
+fileGroups:
+  # Keep project generation independent of the checkout folder name and
+  # optional private files. Repository documentation lives outside this project.
+  - README.md
+  - .swift-format
+  - Config/InstallationIdentity.sh
+  - Config/Development.xcconfig
+  - Config/HealthKit.entitlements
+  - Config/Local.xcconfig.example
+targets:
+  VaganciaFitness:
+    type: application
+    platform: iOS
+    sources:
+      - path: Apps/VaganciaFitness
+        excludes: ['UITests', '**/.gitkeep']
+    dependencies:
+      - package: FitnessKit
+        product: FitnessCore
+      - package: FitnessKit
+        product: FitnessRuntime
+      - target: VaganciaFitnessWatch
+        embed: true
+    info:
+      path: Apps/VaganciaFitness/App/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleLocalizations: [es, en]
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UIBackgroundModes: [bluetooth-central, processing]
+        BGTaskSchedulerPermittedIdentifiers: ['$(PRODUCT_BUNDLE_IDENTIFIER).workout']
+        UIAppFonts: [asimovian-400.ttf, inter-400.ttf, inter-600.ttf, inter-700.ttf, lekton-400.ttf]
+        NSHealthShareUsageDescription: Mostrar en el iPhone el pulso, la energía y el entrenamiento capturados con tu Apple Watch.
+        NSHealthUpdateUsageDescription: Guardar una única sesión de caminadora con distancia FTMS y métricas de tu Apple Watch.
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(VAGANCIAFITNESS_BUNDLE_ID)
+        CODE_SIGN_ENTITLEMENTS: Config/HealthKit.entitlements
+        SWIFT_EMIT_LOC_STRINGS: YES
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+        MARKETING_VERSION: '0.8.4'
+        CURRENT_PROJECT_VERSION: '17'
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: VAGANCIA FITNESS
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: Conectar tu caminadora para registrar entrenamientos y controlar sus objetivos cuando tú lo solicites.
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+    scheme:
+      testTargets:
+        - package: FitnessKit/FitnessCoreTests
+        - package: FitnessKit/FitnessRuntimeTests
+        - VaganciaFitnessWatchCallbackTests
+        - VaganciaFitnessUITests
+      gatherCoverageData: true
+  VaganciaFitnessWatch:
+    type: application
+    platform: watchOS
+    deploymentTarget: '26.0'
+    sources:
+      - path: Apps/VaganciaFitnessWatch
+        excludes: ['UITests', 'Tests']
+    dependencies:
+      - package: FitnessKit
+        product: FitnessCore
+    info:
+      path: Apps/VaganciaFitnessWatch/App/Info.plist
+      properties:
+        CFBundleDisplayName: VAGANCIA FITNESS
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleLocalizations: [es, en]
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: $(VAGANCIAFITNESS_BUNDLE_ID)
+        WKBackgroundModes: [workout-processing]
+        NSHealthShareUsageDescription: Registrar y mostrar tu pulso y energía durante los entrenamientos de caminadora.
+        NSHealthUpdateUsageDescription: Guardar en Salud una sesión con la distancia recibida de la caminadora y las métricas estimadas por el Watch.
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(VAGANCIAFITNESS_WATCH_BUNDLE_ID)
+        CODE_SIGN_ENTITLEMENTS: Config/HealthKit.entitlements
+        GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SWIFT_EMIT_LOC_STRINGS: YES
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+        MARKETING_VERSION: '0.8.4'
+        CURRENT_PROJECT_VERSION: '17'
+        TARGETED_DEVICE_FAMILY: '4'
+    scheme:
+      gatherCoverageData: true
+  VaganciaFitnessWatchCallbackTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Apps/VaganciaFitnessWatch/Services/WatchHealthQueryCallbacks.swift
+      - Apps/VaganciaFitnessWatch/Tests/WatchCallbackBoundaryTests.swift
+    dependencies:
+      - package: FitnessKit
+        product: FitnessCore
+      - sdk: HealthKit.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(VAGANCIAFITNESS_WATCH_CALLBACK_TESTS_BUNDLE_ID)
+        GENERATE_INFOPLIST_FILE: YES
+  VaganciaFitnessDebug:
+    type: application
+    platform: iOS
+    sources:
+      - path: Apps/VaganciaFitnessDebug
+        excludes: ['UITests', '**/.gitkeep']
+    dependencies:
+      - package: FitnessKit
+        product: FitnessCore
+      - package: FitnessKit
+        product: FitnessRuntime
+    info:
+      path: Apps/VaganciaFitnessDebug/App/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UIBackgroundModes: [bluetooth-central]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(VAGANCIAFITNESS_DEBUG_BUNDLE_ID)
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: VAGANCIA FITNESS Debug
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: Buscar y conectar tu caminadora para explorar sus servicios Bluetooth y guardar el diagnóstico.
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    scheme:
+      testTargets:
+        - package: FitnessKit/FitnessCoreTests
+        - package: FitnessKit/FitnessRuntimeTests
+        - VaganciaFitnessDebugUITests
+      gatherCoverageData: true
+  VaganciaFitnessDebugUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [Apps/VaganciaFitnessDebug/UITests]
+    dependencies:
+      - target: VaganciaFitnessDebug
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(VAGANCIAFITNESS_DEBUG_UI_TESTS_BUNDLE_ID)
+        GENERATE_INFOPLIST_FILE: YES
+  VaganciaFitnessUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [Apps/VaganciaFitness/UITests]
+    dependencies:
+      - target: VaganciaFitness
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(VAGANCIAFITNESS_UI_TESTS_BUNDLE_ID)
+        GENERATE_INFOPLIST_FILE: YES

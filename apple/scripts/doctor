@@ -1,0 +1,73 @@
+#!/bin/sh
+set -eu
+. "$(dirname -- "$0")/_common.sh"
+failures=0
+missing() {
+    printf 'missing  %s; install/select it manually (doctor never installs tools)\n' "$1"
+    failures=$((failures + 1))
+}
+check_version() {
+    label=$1; actual=$2; expected=$3; family=$4
+    if [ -n "$expected" ]; then
+        matches=false
+        [ "$actual" != "$expected" ] || matches=true
+        requirement="$expected"
+    else
+        matches=false
+        case "$actual" in "$family"|"$family".*) matches=true ;; esac
+        requirement="$family.x"
+    fi
+    if [ "$matches" = true ]; then
+        printf 'ok       %-18s %s\n' "$label" "$actual"
+    else
+        printf 'error    %-18s expected %s, found %s; select a supported full Xcode with DEVELOPER_DIR or xcode-select\n' "$label" "$requirement" "${actual:-unknown}"
+        failures=$((failures + 1))
+    fi
+}
+printf 'Repository: %s\nApple project: %s\n' "$REPO_ROOT" "$APPLE_DIR/VaganciaFitness.xcodeproj"
+configuration=$(resolve_configuration)
+printf 'info     configuration      %s\n' "$configuration"
+python_ready=false
+if command -v python3 >/dev/null 2>&1; then
+    if python_version=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:3]))); sys.exit(0 if sys.version_info >= (3, 11) else 1)'); then
+        python_ready=true
+        printf 'ok       %-18s %s\n' Python "$python_version"
+    else
+        printf 'error    Python requires 3.11 or newer, found %s; select a supported Python 3 manually\n' "${python_version:-unknown}"
+        failures=$((failures + 1))
+    fi
+else missing 'Python 3.11 or newer (required by simulator and repository checks)'; fi
+if command -v xcodegen >/dev/null 2>&1; then
+    actual=$(xcodegen --version 2>/dev/null | sed -n 's/^Version: //p')
+    check_version XcodeGen "$actual" 2.44.1 ''
+else missing 'XcodeGen 2.44.1'; fi
+if command -v xcodebuild >/dev/null 2>&1; then
+    actual=$(xcodebuild -version 2>/dev/null | sed -n 's/^Xcode //p')
+    check_version Xcode "$actual" "${EXPECTED_XCODE_VERSION:-}" 26
+else missing 'Xcode 26 build tools'; fi
+if command -v xcrun >/dev/null 2>&1 && xcrun --find swift >/dev/null 2>&1; then
+    actual=$(xcrun swift --version 2>/dev/null | sed -n 's/.*Swift version \([0-9][0-9.]*\).*/\1/p' | head -n 1)
+    check_version Swift "$actual" "${EXPECTED_SWIFT_VERSION:-}" 6.2
+    if xcrun swift format --version >/dev/null 2>&1; then
+        printf 'ok       swift-format      %s\n' "$(xcrun swift format --version | head -n 1)"
+    else missing 'swift-format (select a full Xcode installation)'; fi
+else missing 'Swift from a full Xcode 26 installation'; fi
+if [ -f "$APPLE_DIR/Config/Development.xcconfig" ] && [ -f "$APPLE_DIR/Config/HealthKit.entitlements" ] && [ -f "$APPLE_DIR/project.yml" ] && [ -f "$APPLE_DIR/VaganciaFitness.xcodeproj/project.pbxproj" ]; then
+    printf 'ok       project config and generated project\n'
+else missing 'Apple project configuration or generated project'; fi
+if [ -f "$APPLE_DIR/Config/Local.xcconfig" ]; then
+    printf 'ok       operator Local.xcconfig is present (contents not shown)\n'
+else printf 'info     Local.xcconfig absent; simulator builds use signing disabled\n'; fi
+if [ "$python_ready" = true ] && command -v xcrun >/dev/null 2>&1 && command -v xcodebuild >/dev/null 2>&1; then
+    if count=$(python3 "$APPLE_DIR/scripts/_simulator_destinations.py" \
+        --project "$APPLE_DIR/VaganciaFitness.xcodeproj" --configuration "$configuration" --count); then
+        printf 'info     usable iOS 26+ iPhone simulators: %s (simctl and scheme destinations)\n' "$count"
+        if [ "$count" -eq 0 ]; then
+            printf 'error    no compatible iPhone simulator; inspect xcrun simctl list runtimes and xcodebuild -project apple/VaganciaFitness.xcodeproj -scheme VaganciaFitness -showdestinations; select a compatible full Xcode/runtime\n'
+            failures=$((failures + 1))
+        elif [ -n "${DESTINATION:-}" ]; then
+            if destination=$(resolve_ios_simulator_destination); then printf 'ok       destination        %s\n' "$destination"; else failures=$((failures + 1)); fi
+        fi
+    else failures=$((failures + 1)); fi
+fi
+[ "$failures" -eq 0 ] || exit 1

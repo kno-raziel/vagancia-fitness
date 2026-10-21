@@ -1,0 +1,17 @@
+#!/bin/sh
+# Run source-only checks on any platform with Python; no Apple SDK is required.
+set -eu
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+export PYTHONDONTWRITEBYTECODE=1
+if ! command -v python3 >/dev/null 2>&1; then
+    printf 'Repository checks require Python 3.11 or newer; python3 is not available.\n' >&2
+    exit 127
+fi
+python3 -c 'import sys; sys.exit("Repository checks require Python 3.11 or newer; found " + sys.version.split()[0]) if sys.version_info < (3, 11) else None'
+for check in check-docs check-contracts check-public-files check-names; do
+    "$ROOT/scripts/$check"
+done
+"$ROOT/apple/scripts/check-privacy"
+python3 "$ROOT/apple/scripts/validate-localizations.py"
+python3 -m unittest discover -s "$ROOT/scripts/tests" -p 'test_*.py' -v
+python3 -m unittest discover -s "$ROOT/apple/scripts/tests" -p 'test_*.py' -v

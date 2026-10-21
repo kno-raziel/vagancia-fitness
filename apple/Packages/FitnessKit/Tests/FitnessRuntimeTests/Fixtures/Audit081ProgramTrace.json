@@ -1,0 +1,581 @@
+{
+  "source": "Sanitized hardware-derived regression fixture; private original retained outside the public set.",
+  "sourceType": "CoreDevice app-container snapshot; events are app-recorded observations of real connected hardware",
+  "sessionId": "d1108079-4fe4-5bff-81ed-2840b72f5ddc",
+  "workoutId": "4d90c757-ac29-53f6-9e08-965e75c0594c",
+  "windowUTC": [
+    "2000-01-03T22:31:10.818Z",
+    "2000-01-03T22:32:07.592Z"
+  ],
+  "controlAndStageEvents": [
+    {
+      "sequence": 3328,
+      "timestampUTC": "2000-01-03T22:31:11.015Z",
+      "kind": "workout.start.stage",
+      "stage": "preflight",
+      "status": "completed",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3329,
+      "timestampUTC": "2000-01-03T22:31:11.199Z",
+      "kind": "workout.start.stage",
+      "stage": "recordCreated",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3333,
+      "timestampUTC": "2000-01-03T22:31:11.431Z",
+      "kind": "workout.start.stage",
+      "stage": "recordCreated",
+      "status": "completed",
+      "durationMilliseconds": 231.29920833162032
+    },
+    {
+      "sequence": 3334,
+      "timestampUTC": "2000-01-03T22:31:11.617Z",
+      "kind": "workout.start.stage",
+      "stage": "backgroundTask",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3338,
+      "timestampUTC": "2000-01-03T22:31:11.863Z",
+      "kind": "workout.start.stage",
+      "stage": "backgroundTask",
+      "status": "completed",
+      "durationMilliseconds": 245.3817916684784
+    },
+    {
+      "sequence": 3339,
+      "timestampUTC": "2000-01-03T22:31:12.050Z",
+      "kind": "workout.start.stage",
+      "stage": "ftmsSubscriptions",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3348,
+      "timestampUTC": "2000-01-03T22:31:12.736Z",
+      "kind": "workout.start.stage",
+      "stage": "ftmsSubscriptions",
+      "status": "completed",
+      "durationMilliseconds": 685.8729166560806
+    },
+    {
+      "sequence": 3350,
+      "timestampUTC": "2000-01-03T22:31:12.775Z",
+      "kind": "workout.start.stage",
+      "stage": "requestControl",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3351,
+      "timestampUTC": "2000-01-03T22:31:12.963Z",
+      "kind": "ftms.control.requested",
+      "procedureId": "86d4905e-254d-5af6-a85b-abee47777448",
+      "action": "requestControl",
+      "valueHex": "00",
+      "requestedSpeedKPH": null,
+      "requestedInclinationPercent": null
+    },
+    {
+      "sequence": 3355,
+      "timestampUTC": "2000-01-03T22:31:13.331Z",
+      "kind": "ftms.control.written",
+      "procedureId": "86d4905e-254d-5af6-a85b-abee47777448",
+      "action": null,
+      "valueHex": "00"
+    },
+    {
+      "sequence": 3356,
+      "timestampUTC": "2000-01-03T22:31:13.336Z",
+      "kind": "ftms.control.response",
+      "procedureId": "86d4905e-254d-5af6-a85b-abee47777448",
+      "action": "requestControl",
+      "valueHex": "800001",
+      "procedureTerminal": {
+        "action": "requestControl",
+        "interpretationSource": "application",
+        "procedureId": "86d4905e-254d-5af6-a85b-abee47777448",
+        "requestValueHex": "00",
+        "responseCode": 1,
+        "responseEventId": "bc6f9848-461e-5370-8f0a-d719d3db0f85",
+        "result": "acceptedByProtocol",
+        "writeStatus": "acknowledgedByBLE"
+      }
+    },
+    {
+      "sequence": 3357,
+      "timestampUTC": "2000-01-03T22:31:13.361Z",
+      "kind": "workout.start.stage",
+      "stage": "requestControl",
+      "status": "completed",
+      "durationMilliseconds": 585.5655833438504
+    },
+    {
+      "sequence": 3358,
+      "timestampUTC": "2000-01-03T22:31:13.539Z",
+      "kind": "workout.start.stage",
+      "stage": "stopBeforeStart",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3361,
+      "timestampUTC": "2000-01-03T22:31:13.726Z",
+      "kind": "ftms.control.requested",
+      "procedureId": "1b8976c1-b7a9-5a89-9bf3-96b5c97341fe",
+      "action": "stop",
+      "valueHex": "0801",
+      "requestedSpeedKPH": null,
+      "requestedInclinationPercent": null
+    },
+    {
+      "sequence": 3363,
+      "timestampUTC": "2000-01-03T22:31:13.957Z",
+      "kind": "ftms.control.written",
+      "procedureId": "1b8976c1-b7a9-5a89-9bf3-96b5c97341fe",
+      "action": null,
+      "valueHex": "0801"
+    },
+    {
+      "sequence": 3364,
+      "timestampUTC": "2000-01-03T22:31:13.960Z",
+      "kind": "ftms.control.response",
+      "procedureId": "1b8976c1-b7a9-5a89-9bf3-96b5c97341fe",
+      "action": "stop",
+      "valueHex": "800801",
+      "procedureTerminal": {
+        "action": "stop",
+        "interpretationSource": "application",
+        "procedureId": "1b8976c1-b7a9-5a89-9bf3-96b5c97341fe",
+        "requestValueHex": "0801",
+        "responseCode": 1,
+        "responseEventId": "bb382e6a-f97a-5fc2-8411-9439daa43b71",
+        "result": "acceptedByProtocol",
+        "writeStatus": "acknowledgedByBLE"
+      }
+    },
+    {
+      "sequence": 3365,
+      "timestampUTC": "2000-01-03T22:31:14.009Z",
+      "kind": "workout.start.stage",
+      "stage": "stopBeforeStart",
+      "status": "completed",
+      "durationMilliseconds": 469.7440833260771
+    },
+    {
+      "sequence": 3366,
+      "timestampUTC": "2000-01-03T22:31:14.198Z",
+      "kind": "workout.start.stage",
+      "stage": "observeZeroSpeed",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3367,
+      "timestampUTC": "2000-01-03T22:31:14.208Z",
+      "kind": "ftms.machine.status",
+      "valueHex": "0201"
+    },
+    {
+      "sequence": 3370,
+      "timestampUTC": "2000-01-03T22:31:14.216Z",
+      "kind": "workout.start.stage",
+      "stage": "observeZeroSpeed",
+      "status": "completed",
+      "durationMilliseconds": 17.27195832063444
+    },
+    {
+      "sequence": 3372,
+      "timestampUTC": "2000-01-03T22:31:14.239Z",
+      "kind": "workout.start.stage",
+      "stage": "start",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3373,
+      "timestampUTC": "2000-01-03T22:31:14.424Z",
+      "kind": "ftms.control.requested",
+      "procedureId": "b04c81a0-4979-5b98-bb0b-1d4b561f6fb4",
+      "action": "start",
+      "valueHex": "07",
+      "requestedSpeedKPH": null,
+      "requestedInclinationPercent": null
+    },
+    {
+      "sequence": 3377,
+      "timestampUTC": "2000-01-03T22:31:14.831Z",
+      "kind": "ftms.control.written",
+      "procedureId": "b04c81a0-4979-5b98-bb0b-1d4b561f6fb4",
+      "action": null,
+      "valueHex": "07"
+    },
+    {
+      "sequence": 3378,
+      "timestampUTC": "2000-01-03T22:31:14.837Z",
+      "kind": "ftms.control.response",
+      "procedureId": "b04c81a0-4979-5b98-bb0b-1d4b561f6fb4",
+      "action": "start",
+      "valueHex": "800701",
+      "procedureTerminal": {
+        "action": "start",
+        "interpretationSource": "application",
+        "procedureId": "b04c81a0-4979-5b98-bb0b-1d4b561f6fb4",
+        "requestValueHex": "07",
+        "responseCode": 1,
+        "responseEventId": "f747ced5-2ef0-5d0c-87c3-0ee2fe8c005b",
+        "result": "acceptedByProtocol",
+        "writeStatus": "acknowledgedByBLE"
+      }
+    },
+    {
+      "sequence": 3379,
+      "timestampUTC": "2000-01-03T22:31:14.874Z",
+      "kind": "workout.start.stage",
+      "stage": "start",
+      "status": "completed",
+      "durationMilliseconds": 634.8678749927785
+    },
+    {
+      "sequence": 3380,
+      "timestampUTC": "2000-01-03T22:31:15.055Z",
+      "kind": "workout.start.stage",
+      "stage": "observePositiveSpeed",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3384,
+      "timestampUTC": "2000-01-03T22:31:15.332Z",
+      "kind": "ftms.machine.status",
+      "valueHex": "04"
+    },
+    {
+      "sequence": 3403,
+      "timestampUTC": "2000-01-03T22:31:18.457Z",
+      "kind": "ftms.machine.status",
+      "valueHex": "04"
+    },
+    {
+      "sequence": 3413,
+      "timestampUTC": "2000-01-03T22:31:19.917Z",
+      "kind": "workout.start.stage",
+      "stage": "observePositiveSpeed",
+      "status": "completed",
+      "durationMilliseconds": 4861.90720833838
+    },
+    {
+      "sequence": 3414,
+      "timestampUTC": "2000-01-03T22:31:20.099Z",
+      "kind": "workout.start.stage",
+      "stage": "initialTargets",
+      "status": "began",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3415,
+      "timestampUTC": "2000-01-03T22:31:20.282Z",
+      "kind": "ftms.control.requested",
+      "procedureId": "9a57be01-173e-526b-866a-9a9814afd40f",
+      "action": "speed",
+      "valueHex": "02F401",
+      "requestedSpeedKPH": 5,
+      "requestedInclinationPercent": null
+    },
+    {
+      "sequence": 3419,
+      "timestampUTC": "2000-01-03T22:31:20.707Z",
+      "kind": "ftms.control.written",
+      "procedureId": "9a57be01-173e-526b-866a-9a9814afd40f",
+      "action": null,
+      "valueHex": "02F401"
+    },
+    {
+      "sequence": 3420,
+      "timestampUTC": "2000-01-03T22:31:20.710Z",
+      "kind": "ftms.control.response",
+      "procedureId": "9a57be01-173e-526b-866a-9a9814afd40f",
+      "action": "speed",
+      "valueHex": "800201",
+      "procedureTerminal": {
+        "action": "speed",
+        "interpretationSource": "application",
+        "procedureId": "9a57be01-173e-526b-866a-9a9814afd40f",
+        "requestValueHex": "02F401",
+        "responseCode": 1,
+        "responseEventId": "57ffc561-dd2d-5953-837b-427369c20989",
+        "result": "acceptedByProtocol",
+        "writeStatus": "acknowledgedByBLE"
+      }
+    },
+    {
+      "sequence": 3421,
+      "timestampUTC": "2000-01-03T22:31:20.731Z",
+      "kind": "ftms.control.requested",
+      "procedureId": "7874ed3f-f846-5968-b3ff-48bdf512deff",
+      "action": "inclination",
+      "valueHex": "030000",
+      "requestedSpeedKPH": null,
+      "requestedInclinationPercent": 0
+    },
+    {
+      "sequence": 3422,
+      "timestampUTC": "2000-01-03T22:31:20.958Z",
+      "kind": "ftms.machine.status",
+      "valueHex": "04"
+    },
+    {
+      "sequence": 3426,
+      "timestampUTC": "2000-01-03T22:31:21.082Z",
+      "kind": "ftms.control.written",
+      "procedureId": "7874ed3f-f846-5968-b3ff-48bdf512deff",
+      "action": null,
+      "valueHex": "030000"
+    },
+    {
+      "sequence": 3427,
+      "timestampUTC": "2000-01-03T22:31:21.083Z",
+      "kind": "ftms.control.response",
+      "procedureId": "7874ed3f-f846-5968-b3ff-48bdf512deff",
+      "action": "inclination",
+      "valueHex": "800301",
+      "procedureTerminal": {
+        "action": "inclination",
+        "interpretationSource": "application",
+        "procedureId": "7874ed3f-f846-5968-b3ff-48bdf512deff",
+        "requestValueHex": "030000",
+        "responseCode": 1,
+        "responseEventId": "e5c4d3b7-ec9d-5238-9cf7-6819bb5d2089",
+        "result": "acceptedByProtocol",
+        "writeStatus": "acknowledgedByBLE"
+      }
+    },
+    {
+      "sequence": 3428,
+      "timestampUTC": "2000-01-03T22:31:21.103Z",
+      "kind": "workout.start.stage",
+      "stage": "initialTargets",
+      "status": "completed",
+      "durationMilliseconds": 1004.1950416634791
+    },
+    {
+      "sequence": 3429,
+      "timestampUTC": "2000-01-03T22:31:21.292Z",
+      "kind": "workout.running",
+      "payload": {
+        "freshPositiveSpeedObserved": true,
+        "startAcceptedByFTMS": true
+      }
+    },
+    {
+      "sequence": 3430,
+      "timestampUTC": "2000-01-03T22:31:21.292Z",
+      "kind": "workout.start.stage",
+      "stage": "running",
+      "status": "completed",
+      "durationMilliseconds": 0
+    },
+    {
+      "sequence": 3431,
+      "timestampUTC": "2000-01-03T22:31:21.333Z",
+      "kind": "ftms.machine.status",
+      "valueHex": "04"
+    },
+    {
+      "sequence": 3721,
+      "timestampUTC": "2000-01-03T22:32:02.888Z",
+      "kind": "ftms.control.requested",
+      "procedureId": "c90e81f2-e7bb-5f30-8eb5-0fe19804f3f2",
+      "action": "stop",
+      "valueHex": "0801",
+      "requestedSpeedKPH": null,
+      "requestedInclinationPercent": null
+    },
+    {
+      "sequence": 3722,
+      "timestampUTC": "2000-01-03T22:32:03.207Z",
+      "kind": "ftms.control.written",
+      "procedureId": "c90e81f2-e7bb-5f30-8eb5-0fe19804f3f2",
+      "action": null,
+      "valueHex": "0801"
+    },
+    {
+      "sequence": 3723,
+      "timestampUTC": "2000-01-03T22:32:03.214Z",
+      "kind": "ftms.control.response",
+      "procedureId": "c90e81f2-e7bb-5f30-8eb5-0fe19804f3f2",
+      "action": "stop",
+      "valueHex": "800801",
+      "procedureTerminal": {
+        "action": "stop",
+        "interpretationSource": "application",
+        "procedureId": "c90e81f2-e7bb-5f30-8eb5-0fe19804f3f2",
+        "requestValueHex": "0801",
+        "responseCode": 1,
+        "responseEventId": "c8b6be17-ad2f-5163-accc-046bd3cd980c",
+        "result": "acceptedByProtocol",
+        "writeStatus": "acknowledgedByBLE"
+      }
+    },
+    {
+      "sequence": 3724,
+      "timestampUTC": "2000-01-03T22:32:03.459Z",
+      "kind": "ftms.machine.status",
+      "valueHex": "0201"
+    },
+    {
+      "sequence": 3737,
+      "timestampUTC": "2000-01-03T22:32:04.957Z",
+      "kind": "ftms.machine.status",
+      "valueHex": "0201"
+    },
+    {
+      "sequence": 3752,
+      "timestampUTC": "2000-01-03T22:32:07.315Z",
+      "kind": "ftms.control.requested",
+      "procedureId": "2ca9da32-431c-5904-bd85-3e963c7b14a0",
+      "action": "stop",
+      "valueHex": "0801",
+      "requestedSpeedKPH": null,
+      "requestedInclinationPercent": null
+    },
+    {
+      "sequence": 3756,
+      "timestampUTC": "2000-01-03T22:32:07.582Z",
+      "kind": "ftms.control.written",
+      "procedureId": "2ca9da32-431c-5904-bd85-3e963c7b14a0",
+      "action": null,
+      "valueHex": "0801"
+    },
+    {
+      "sequence": 3757,
+      "timestampUTC": "2000-01-03T22:32:07.592Z",
+      "kind": "ftms.control.response",
+      "procedureId": "2ca9da32-431c-5904-bd85-3e963c7b14a0",
+      "action": "stop",
+      "valueHex": "800801",
+      "procedureTerminal": {
+        "action": "stop",
+        "interpretationSource": "application",
+        "procedureId": "2ca9da32-431c-5904-bd85-3e963c7b14a0",
+        "requestValueHex": "0801",
+        "responseCode": 1,
+        "responseEventId": "ce08b14f-4c31-569d-860a-43b1126a19a9",
+        "result": "acceptedByProtocol",
+        "writeStatus": "acknowledgedByBLE"
+      }
+    }
+  ],
+  "selectedSpeedTelemetry": [
+    {
+      "sequence": 3410,
+      "timestampUTC": "2000-01-03T22:31:19.833Z",
+      "speedKPH": 0.5,
+      "valueHex": "8C0532000000000000FF7F0000000000000100",
+      "eventId": "215f83fb-24b8-5a67-b0a1-820c49125407"
+    },
+    {
+      "sequence": 3416,
+      "timestampUTC": "2000-01-03T22:31:20.333Z",
+      "speedKPH": 0.8,
+      "valueHex": "8C0550000000000000FF7F0000000000000100",
+      "eventId": "4d7ab900-0bb4-58e8-ad0a-c5d7c3c99ef8"
+    },
+    {
+      "sequence": 3423,
+      "timestampUTC": "2000-01-03T22:31:20.958Z",
+      "speedKPH": 0.8,
+      "valueHex": "8C0550000000000000FF7F0000000000000200",
+      "eventId": "7cdba9b2-8a04-5e00-91e7-609a660b1506"
+    },
+    {
+      "sequence": 3432,
+      "timestampUTC": "2000-01-03T22:31:21.333Z",
+      "speedKPH": 5,
+      "valueHex": "8C05F4010000000000FF7F0000000000000300",
+      "eventId": "68366433-89e9-51c8-843d-ce57bf2addbc"
+    },
+    {
+      "sequence": 3435,
+      "timestampUTC": "2000-01-03T22:31:21.833Z",
+      "speedKPH": 0.8,
+      "valueHex": "8C0550000000000000FF7F0000000000000300",
+      "eventId": "0598ec60-2756-55f3-b35d-62a37854f149"
+    },
+    {
+      "sequence": 3438,
+      "timestampUTC": "2000-01-03T22:31:22.334Z",
+      "speedKPH": 0.8,
+      "valueHex": "8C0550000000000000FF7F0000000000000400",
+      "eventId": "b8276cbd-b5b1-5ebc-9497-688526006b38"
+    },
+    {
+      "sequence": 3718,
+      "timestampUTC": "2000-01-03T22:32:02.834Z",
+      "speedKPH": 0.8,
+      "valueHex": "8C0550000000000000FF7F0000000000002C00",
+      "eventId": "1114f150-fe4c-5016-afd0-0e8c00f4627f"
+    },
+    {
+      "sequence": 3725,
+      "timestampUTC": "2000-01-03T22:32:03.463Z",
+      "speedKPH": 0.8,
+      "valueHex": "8C0550000000000000FF7F0000000000002C00",
+      "eventId": "4395182e-13ec-5e3d-897a-aba74f980f25"
+    },
+    {
+      "sequence": 3728,
+      "timestampUTC": "2000-01-03T22:32:03.834Z",
+      "speedKPH": 0.7,
+      "valueHex": "8C0546000000000000FF7F0000000000002D00",
+      "eventId": "ca97d4eb-a380-58c7-a28c-e9a07ce62c99"
+    },
+    {
+      "sequence": 3731,
+      "timestampUTC": "2000-01-03T22:32:04.333Z",
+      "speedKPH": 0.4,
+      "valueHex": "8C0528000000000000FF7F0000000000002D00",
+      "eventId": "9e61187d-891a-5253-9bc9-5b2b1db97f33"
+    },
+    {
+      "sequence": 3734,
+      "timestampUTC": "2000-01-03T22:32:04.834Z",
+      "speedKPH": 0.2,
+      "valueHex": "8C0514000000000000FF7F0000000000002D00",
+      "eventId": "f23baa2f-4615-56c8-9a5d-22acd03c29c8"
+    },
+    {
+      "sequence": 3738,
+      "timestampUTC": "2000-01-03T22:32:05.333Z",
+      "speedKPH": 0,
+      "valueHex": "8C0500000000000000FF7F0000000000002D00",
+      "eventId": "6bcb7c4b-85da-58b0-84cf-dcd14d8e24dc"
+    }
+  ],
+  "sustainedSpeedAfterTransient": {
+    "sequenceRange": "3435 through 3720 (after one 5.0 sample, before operator Stop)",
+    "count": 82,
+    "speedCounts": {
+      "0.8": 82
+    },
+    "firstUTC": "2000-01-03T22:31:21.833Z",
+    "lastUTC": "2000-01-03T22:32:02.834Z"
+  },
+  "interpretation": {
+    "speedCommand": "02F401 is FTMS Set Target Speed 5.00 km/h and received 800201 protocol success; BLE write callback has no error. This does not prove physical 5 km/h.",
+    "inclinationCommand": "030000 set 0 percent, received 800301 protocol success. The 5.0 FTMS sample appears after this command, then subsequent samples return to 0.8. Causality is unresolved.",
+    "physicalLimit": "FTMS telemetry reports speed; no synchronized console value or independent belt measurement in snapshot."
+  },
+  "sanitization": {
+    "kind": "hardware-derived",
+    "identifiers": "stable fictional IDs",
+    "timestamps": "shifted; relative intervals retained",
+    "originals": "not required to build or test"
+  }
+}

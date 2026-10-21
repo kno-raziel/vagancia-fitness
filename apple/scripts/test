@@ -1,0 +1,39 @@
+#!/bin/sh
+set -eu
+. "$(dirname -- "$0")/_common.sh"
+require_command xcodebuild
+configuration=$(resolve_configuration)
+group=${1:-core}
+scheme=VaganciaFitness
+case "$group" in
+  core) only=FitnessCoreTests ;;
+  runtime) only=FitnessRuntimeTests ;;
+  callbacks) only=VaganciaFitnessWatchCallbackTests ;;
+  ui-product) only=VaganciaFitnessUITests ;;
+  ui-debug) only=VaganciaFitnessDebugUITests; scheme=VaganciaFitnessDebug ;;
+  all) only='' ;;
+  *) printf 'Usage: %s [core|runtime|callbacks|ui-product|ui-debug|all]\n' "$0" >&2; exit 2 ;;
+esac
+if [ "$#" -gt 0 ]; then shift; fi
+if [ "$group" = all ]; then
+    failed_suites=''
+    for suite in core runtime callbacks ui-product ui-debug; do
+        if "$0" "$suite" "$@"; then :; else failed_suites="$failed_suites $suite"; fi
+    done
+    if [ -n "$failed_suites" ]; then
+        printf 'Failed test groups:%s\n' "$failed_suites" >&2
+        exit 1
+    fi
+    exit 0
+fi
+destination=$(resolve_ios_simulator_destination "$scheme")
+result_directory="$BUILD_ROOT/Results"
+mkdir -p "$result_directory"
+result_bundle="$result_directory/$group-$(date +%Y%m%d-%H%M%S)-$$.xcresult"
+cd "$APPLE_DIR"
+custom_selection=false
+for argument in "$@"; do
+    case "$argument" in -only-testing:*) custom_selection=true ;; esac
+done
+if [ "$custom_selection" = false ]; then set -- "-only-testing:$only" "$@"; fi
+run_logged "test-$group-$configuration" xcodebuild -project VaganciaFitness.xcodeproj -scheme "$scheme" -configuration "$configuration" -destination "$destination" -derivedDataPath "$BUILD_ROOT/DerivedData" -resultBundlePath "$result_bundle" CODE_SIGNING_ALLOWED=NO "$@" test

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "provenance": "synthetic wire examples; no hardware or motor commands",
+  "cases": [
+    {
+      "id": "range-query",
+      "frameHex": "0250025203",
+      "family": 80,
+      "parameter": 2,
+      "recognized": false
+    },
+    {
+      "id": "range-reply",
+      "frameHex": "025002A00800FA03",
+      "family": 80,
+      "parameter": 2,
+      "recognized": true
+    },
+    {
+      "id": "unknown-family",
+      "frameHex": "0255005503",
+      "family": 85,
+      "parameter": 0,
+      "recognized": false
+    },
+    {
+      "id": "bad-checksum",
+      "frameHex": "0250020003",
+      "error": "invalidFrame"
+    },
+    {
+      "id": "bad-footer",
+      "frameHex": "0250025200",
+      "error": "invalidFrame"
+    }
+  ]
+}

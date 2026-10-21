@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""Check public documentation links and explicit current-state constraints."""
+import re
+import json
+import sys
+from urllib.parse import unquote, urlsplit
+from _repository import ROOT, public_files
+
+files = list(public_files())
+public = {p.resolve() for p in files}
+errors = []
+checked = 0
+retired_directories = ("docs/decisions/", "docs/history/")
+retired_files = {"CHANGELOG.md", "docs/oss-preparation-plan.md",
+                 "docs/testing/oss-preparation.md", "docs/testing/name-migration.md",
+                 "docs/testing/oss-closeout.md", "docs/testing/english-standardization.md"}
+stale_claims = re.compile(
+    r"does not yet have an authorized code license|no code license has been selected|"
+    r"pending artwork provenance|rights and redistribution status are still being confirmed",
+    re.IGNORECASE,
+)
+for relative in retired_files:
+    if (ROOT / relative).exists():
+        errors.append(f"Historical document belongs in private evidence: {relative}")
+for path in files:
+    if path.suffix != ".md":
+        continue
+    relative = path.relative_to(ROOT).as_posix()
+    content = path.read_text()
+    if relative.startswith(retired_directories) or re.search(r"^#\s+ADR\b", content, re.IGNORECASE | re.MULTILINE):
+        errors.append(f"Use the current topic instead of public history/ADRs: {relative}")
+    if stale_claims.search(content):
+        errors.append(f"Outdated licensing/brand claim: {relative}")
+    text = re.sub(r"```.*?```", "", content, flags=re.S)
+    for match in re.finditer(r"!?\[[^\]]*\]\((<[^>]+>|[^\s)]+)(?:\s+[^)]*)?\)", text):
+        link = match.group(1).strip("<>")
+        url = urlsplit(link)
+        if url.scheme or url.netloc or not url.path:
+            continue
+        target = (path.parent / unquote(url.path)).resolve()
+        checked += 1
+        if not target.exists() or (target.is_file() and target not in public):
+            errors.append(f"{path.relative_to(ROOT)}: unavailable public link {link}")
+        elif target.is_dir() and not any(target in item.parents for item in public):
+            errors.append(f"{path.relative_to(ROOT)}: empty/private directory link {link}")
+# The license and product's linked license statement must agree. This check
+# catches known contradictions; it is not a semantic validator for all prose.
+if (ROOT / "LICENSE").read_text().splitlines()[0].strip() == "MIT License":
+    if "[MIT License](LICENSE)" not in (ROOT / "PRODUCT.md").read_text():
+        errors.append("Product scope must link its current MIT license")
+metadata = ROOT / ".impeccable/design.json"
+if metadata in files:
+    def validate_metadata(value):
+        if isinstance(value, dict):
+            for child in value.values():
+                validate_metadata(child)
+        elif isinstance(value, list):
+            for child in value:
+                validate_metadata(child)
+        elif isinstance(value, str) and value.startswith("docs/") and value.endswith(".md"):
+            target = (ROOT / value).resolve()
+            if target not in public:
+                errors.append(f"Unavailable public design-documentation reference: {value}")
+    validate_metadata(json.loads(metadata.read_text()))
+if errors:
+    print("\n".join(errors), file=sys.stderr)
+    sys.exit(1)
+print(f"Docs: {checked} local Markdown links resolve; current-state, license and design-reference checks pass.")

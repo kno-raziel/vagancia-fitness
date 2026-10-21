@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+"""Create opaque, flattened reference copies from explicitly supplied local PNGs.
+
+Requires Pillow. Inputs use neutral names reference-01.png ... reference-10.png;
+the operator keeps the original filename mapping private. No image generation,
+blur, reversible layers or original metadata is included in the outputs.
+"""
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+import re
+
+ROOT = Path(__file__).resolve().parents[1]
+PNG_BASENAME = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\.png\Z")
+
+
+def contained_file(directory, name):
+    """Resolve policy filenames without allowing traversal or symlink escapes."""
+    if not isinstance(name, str) or not PNG_BASENAME.fullmatch(name):
+        raise ValueError("Policy input/output must be safe PNG basenames")
+    path = directory / name
+    if not path.resolve().is_relative_to(directory):
+        raise ValueError(f"Policy file escapes its directory: {name}")
+    return path
+
+
+def preflight(source, destination, policy):
+    """Validate every policy entry and output collision before creating files."""
+    source = source.resolve()
+    destination = destination.resolve()
+    if destination.is_relative_to(ROOT) and not destination.is_relative_to(ROOT / ".local"):
+        raise ValueError("Reference output must be outside the repository or under ignored .local/")
+    if source == destination:
+        raise ValueError("Originals and output must be different directories")
+    if not source.is_dir():
+        raise ValueError("Input directory must exist")
+    if destination.exists() and not destination.is_dir():
+        raise ValueError("Output directory must be a directory")
+    manifest = destination / "manifest.json"
+    if manifest.exists() or manifest.is_symlink():
+        raise ValueError("Refusing to overwrite manifest.json; choose a new output directory")
+    cases = policy.get("cases") if isinstance(policy, dict) else None
+    if not isinstance(cases, list) or not cases:
+        raise ValueError("Policy cases must be a nonempty list")
+    entries = []
+    targets = set()
+    for case in cases:
+        if not isinstance(case, dict):
+            raise ValueError("Policy cases must be objects")
+        original = contained_file(source, case.get("input"))
+        target = contained_file(destination, case.get("output"))
+        if not original.is_file():
+            raise ValueError(f"Missing input: {original.name}")
+        if target.exists() or target.is_symlink():
+            raise ValueError(f"Refusing to overwrite {target.name}; choose a new output directory")
+        identity = str(target.resolve()).casefold()
+        if identity in targets:
+            raise ValueError(f"Duplicate output: {target.name}")
+        targets.add(identity)
+        size = case.get("size")
+        if not isinstance(size, list) or len(size) != 2 or any(type(n) is not int or n <= 0 for n in size):
+            raise ValueError(f"Invalid dimensions for {original.name}")
+        rectangles = case.get("rectangles")
+        if not isinstance(rectangles, list) or not rectangles:
+            raise ValueError(f"Masks must be a nonempty list for {original.name}")
+        for rectangle in rectangles:
+            if (not isinstance(rectangle, list) or len(rectangle) != 4
+                    or any(type(n) not in (int, float) or not math.isfinite(n) or not 0 <= n <= 1 for n in rectangle)
+                    or rectangle[0] >= rectangle[2] or rectangle[1] >= rectangle[3]):
+                raise ValueError(f"Invalid normalized mask for {original.name}")
+        entries.append((original, target, size, rectangles))
+    return destination, entries
+
+
+def redact(source, destination, policy):
+    destination, entries = preflight(source, destination, policy)
+    from PIL import Image, ImageDraw
+
+    # Decode and validate all images before creating the destination or outputs.
+    rendered = []
+    for original_path, target, size, rectangles in entries:
+        with Image.open(original_path) as original:
+            if original.format != "PNG" or list(original.size) != size:
+                raise ValueError(f"Unexpected format or dimensions for {original_path.name}")
+            # A new image prevents EXIF/text/ICC metadata from carrying through.
+            image = Image.new("RGB", original.size)
+            image.paste(original.convert("RGB"))
+        draw = ImageDraw.Draw(image)
+        boxes = []
+        for x0, y0, x1, y1 in rectangles:
+            box = (int(x0 * image.width), int(y0 * image.height),
+                   min(image.width - 1, int(x1 * image.width)), min(image.height - 1, int(y1 * image.height)))
+            draw.rectangle(box, fill=(0, 0, 0))
+            boxes.append(box)
+        rendered.append((target, image, boxes))
+
+    destination.mkdir(parents=True, exist_ok=True)
+    manifest = {"schemaVersion": 1, "kind": "redacted third-party UI references",
+                "synthetic": False, "method": "opaque black rectangles; flattened RGB; metadata removed",
+                "hardwareVerification": False, "files": []}
+    for target, image, boxes in rendered:
+        # Exclusive creation also refuses files introduced after preflight.
+        with target.open("xb") as output:
+            image.save(output, format="PNG", compress_level=6)
+        with Image.open(target) as check:
+            if check.info:
+                raise ValueError(f"Unexpected metadata: {target.name}")
+            for left, top, right, bottom in boxes:
+                if check.crop((left, top, right + 1, bottom + 1)).getbbox() is not None:
+                    raise ValueError(f"Mask verification failed: {target.name}")
+        manifest["files"].append({"file": target.name, "sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
+                                  "width": image.width, "height": image.height, "maskCount": len(boxes)})
+    with (destination / "manifest.json").open("x") as output:
+        output.write(json.dumps(manifest, indent=2) + "\n")
+    return len(manifest["files"])
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("input_directory", type=Path)
+    parser.add_argument("output_directory", type=Path)
+    parser.add_argument("--policy", type=Path, required=True,
+                        help="Explicit local JSON mask policy; private reference policies are not distributed")
+    args = parser.parse_args()
+    try:
+        count = redact(args.input_directory, args.output_directory, json.loads(args.policy.read_text()))
+    except (ValueError, OSError, ImportError) as error:
+        parser.error(str(error))
+    print(f"Created {count} flattened copies; visual review is still required.")
+
+
+if __name__ == "__main__":
+    main()

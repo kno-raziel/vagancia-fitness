@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+. "$(dirname -- "$0")/_common.sh"
+require_command xcodebuild
+configuration=$(resolve_configuration)
+scheme=${1:-VaganciaFitness}
+case "$scheme" in VaganciaFitness|VaganciaFitnessDebug|VaganciaFitnessWatch) ;; *) printf 'Usage: %s [VaganciaFitness|VaganciaFitnessDebug|VaganciaFitnessWatch]\n' "$0" >&2; exit 2 ;; esac
+if [ "$#" -gt 0 ]; then shift; fi
+destination=${DESTINATION:-generic/platform=iOS Simulator}
+if [ "$scheme" = VaganciaFitnessWatch ]; then destination=${WATCH_DESTINATION:-generic/platform=watchOS Simulator}; fi
+cd "$APPLE_DIR"
+run_logged "build-$scheme-$configuration" xcodebuild -project VaganciaFitness.xcodeproj -scheme "$scheme" -configuration "$configuration" -destination "$destination" -derivedDataPath "$BUILD_ROOT/DerivedData" CODE_SIGNING_ALLOWED=NO "$@" build

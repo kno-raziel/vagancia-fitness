@@ -1,0 +1,181 @@
+{
+  "1be17ef5-5975-5925-9dc7-32a53cb42b27": {
+    "distance": {
+      "totalMeters": 0
+    },
+    "samples": [],
+    "id": "1be17ef5-5975-5925-9dc7-32a53cb42b27",
+    "captureState": "failed",
+    "acknowledgedSampleIDs": [],
+    "health": {
+      "message": "Historical fixture status; private details removed.",
+      "updatedAt": 214.4939020872116,
+      "state": "discarded"
+    },
+    "receivedCommandIDs": [
+      "ded43c3c-3081-50de-8824-55122d26a8f4"
+    ],
+    "viewGate": {
+      "sessionID": "1be17ef5-5975-5925-9dc7-32a53cb42b27",
+      "sequence": 0,
+      "terminal": false
+    },
+    "view": {
+      "synthetic": false,
+      "metrics": {},
+      "snapshot": {
+        "phaseElapsedSeconds": 0,
+        "intervalIndex": 0,
+        "phase": "steady",
+        "activeElapsedSeconds": 0,
+        "program": {
+          "name": "Fixture program",
+          "id": "free-9286f6cf-9ea7-527c-968b-ef84ca23a25a",
+          "createdAt": 196.87787210941315,
+          "updatedAt": 196.87787210941315,
+          "intervals": [
+            {
+              "id": "8f87650d-8ac6-588d-b393-af4aeb6ee3ec",
+              "phase": "steady",
+              "durationSeconds": 3600,
+              "targetSpeedKPH": 0.8,
+              "targetInclinationPercent": 0
+            }
+          ]
+        },
+        "pausedElapsedSeconds": 0,
+        "state": "preparing"
+      },
+      "generatedAt": 198.75699508190155
+    }
+  },
+  "50760708-3bea-5d61-b1e8-5e22ed7e5cd8": {
+    "view": {
+      "generatedAt": 114.05793511867523,
+      "metrics": {
+        "inclinationPercent": {
+          "monotonicTime": 100.0,
+          "value": 0,
+          "receivedAt": 113.36805009841919,
+          "eventId": "49b5e873-99cd-5200-a8a8-961aaace5ffb",
+          "source": "machineFTMS"
+        },
+        "sessionDistanceMeters": {
+          "monotonicTime": 100.0,
+          "value": 0,
+          "receivedAt": 113.36805009841919,
+          "eventId": "49b5e873-99cd-5200-a8a8-961aaace5ffb",
+          "source": "derived"
+        },
+        "speedKPH": {
+          "monotonicTime": 100.0,
+          "value": 0,
+          "receivedAt": 113.36805009841919,
+          "eventId": "49b5e873-99cd-5200-a8a8-961aaace5ffb",
+          "source": "machineFTMS"
+        }
+      },
+      "synthetic": false,
+      "startedAt": 100.0,
+      "snapshot": {
+        "phaseElapsedSeconds": 0,
+        "intervalIndex": 0,
+        "phase": "warmup",
+        "activeElapsedSeconds": 0,
+        "program": {
+          "createdAt": 0,
+          "name": "Fixture program",
+          "updatedAt": 0,
+          "intervals": [
+            {
+              "targetInclinationPercent": 0,
+              "id": "essential-warmup",
+              "phase": "warmup",
+              "durationSeconds": 120,
+              "targetSpeedKPH": 5
+            },
+            {
+              "targetInclinationPercent": 0,
+              "id": "essential-work-1",
+              "phase": "work",
+              "durationSeconds": 90,
+              "targetSpeedKPH": 9
+            },
+            {
+              "targetInclinationPercent": 0,
+              "id": "essential-recovery-1",
+              "phase": "recovery",
+              "durationSeconds": 150,
+              "targetSpeedKPH": 5
+            },
+            {
+              "targetInclinationPercent": 0,
+              "id": "essential-work-2",
+              "phase": "work",
+              "durationSeconds": 90,
+              "targetSpeedKPH": 10
+            },
+            {
+              "targetInclinationPercent": 0,
+              "id": "essential-recovery-2",
+              "phase": "recovery",
+              "durationSeconds": 150,
+              "targetSpeedKPH": 5
+            },
+            {
+              "targetSpeedKPH": 10,
+              "id": "essential-work-3",
+              "durationSeconds": 90,
+              "targetInclinationPercent": 0,
+              "phase": "work"
+            },
+            {
+              "targetSpeedKPH": 5,
+              "id": "essential-recovery-3",
+              "durationSeconds": 150,
+              "targetInclinationPercent": 0,
+              "phase": "recovery"
+            },
+            {
+              "targetSpeedKPH": 10,
+              "id": "essential-work-4",
+              "durationSeconds": 90,
+              "targetInclinationPercent": 0,
+              "phase": "work"
+            },
+            {
+              "targetSpeedKPH": 4,
+              "id": "essential-cooldown",
+              "durationSeconds": 150,
+              "targetInclinationPercent": 0,
+              "phase": "cooldown"
+            }
+          ],
+          "id": "essential"
+        },
+        "pausedElapsedSeconds": 0,
+        "state": "starting"
+      }
+    },
+    "id": "50760708-3bea-5d61-b1e8-5e22ed7e5cd8",
+    "samples": [],
+    "captureState": "ended",
+    "distance": {
+      "totalMeters": 0
+    },
+    "viewGate": {
+      "terminal": false,
+      "sessionID": "50760708-3bea-5d61-b1e8-5e22ed7e5cd8",
+      "sequence": 31
+    },
+    "receivedCommandIDs": [
+      "2bc65db8-c87a-50c3-8737-b07d12ecd538"
+    ],
+    "acknowledgedSampleIDs": [],
+    "health": {
+      "message": "Historical fixture status; private details removed.",
+      "updatedAt": 114.47241401672363,
+      "state": "discarded"
+    }
+  }
+}

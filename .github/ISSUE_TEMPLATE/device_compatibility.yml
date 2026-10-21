@@ -1,0 +1,33 @@
+name: Device compatibility report
+description: Report observed behavior for a treadmill or fitness device.
+title: "[Compatibility]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not attach raw exports or include serial numbers, Bluetooth identifiers, account details, or health data. Separate reported information from observations made by the app and physical observations."
+  - type: input
+    id: model
+    attributes:
+      label: Device make and model
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App version and app name
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: Observed behavior
+      description: What was advertised, what replied, what telemetry arrived, and what was physically observed?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps and limits
+      description: Include whether any motor command was sent and how it was explicitly authorized. Never post private identifiers.
+    validations:
+      required: true

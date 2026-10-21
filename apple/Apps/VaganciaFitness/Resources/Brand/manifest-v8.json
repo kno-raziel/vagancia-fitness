@@ -1,0 +1,113 @@
+{
+  "name": "Vagancia Fitness",
+  "version": 8,
+  "status": "comparison",
+  "method": "native-svg-composition-from-existing-paths",
+  "sources": [
+    {
+      "file": "apps/website/public/brand/logo-mark.svg",
+      "sha256": "4ae2ad4285f7a4dabf8c02cabaef359b6e8d98afb61c5b76cb871b8ece3d586c",
+      "role": "Original eye paths, extracted from the eye emblem; surrounding rosette and square omitted."
+    },
+    {
+      "file": "docs/brand/vagancia-fitness/vagancia-fitness-orbita-v7.svg",
+      "sha256": "343d09b6a1cc370567c6f2a35b46424f1e7190882e0c21a09795a62818d4c73a",
+      "role": "Hexagons, original masks, typography paths and layout retained."
+    }
+  ],
+  "eye": {
+    "retainedWholePathIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      22,
+      23,
+      24
+    ],
+    "mixedPathIndex": 10,
+    "retainedSubpathCount": 49,
+    "excludedSubpaths": [
+      {
+        "chunk": 49,
+        "bounds": {
+          "x": 353,
+          "y": 652,
+          "width": 106,
+          "height": 127
+        }
+      },
+      {
+        "chunk": 50,
+        "bounds": {
+          "x": 480,
+          "y": 657,
+          "width": 101,
+          "height": 125
+        }
+      }
+    ],
+    "additionalMixedPath": {
+      "index": 21,
+      "excludedSubpathIndices": [
+        2
+      ],
+      "retainedSubpathCount": 12,
+      "reason": "Isolated peripheral stroke outside the eyelid."
+    },
+    "sourcePaintBounds": {
+      "x": 235,
+      "y": 343,
+      "width": 482,
+      "height": 259
+    },
+    "sourceGroupTransform": "translate(0 21)",
+    "targetCenter": [
+      600,
+      600
+    ],
+    "targetWidth": 620,
+    "scale": 1.2863070539419088,
+    "translation": [
+      -12.282157676348561,
+      -7.780082987551964
+    ],
+    "color": "#E6E3DF",
+    "geometryChanged": false
+  },
+  "hexagons": {
+    "geometryChanged": false,
+    "enlarged": false
+  },
+  "wordmark": {
+    "sourceVersion": 7,
+    "geometryChanged": false
+  },
+  "artifacts": [
+    {
+      "file": "docs/brand/vagancia-fitness/vagancia-fitness-orbita-ojo-v8.svg",
+      "sha256": "7ffc6f2b3980a2c8318fe3701a35bf4ad27e01f80ee44c9c7a4833b89dbbbba4",
+      "background": "#080808",
+      "wordmark": true
+    },
+    {
+      "file": "docs/brand/vagancia-fitness/vagancia-fitness-orbita-ojo-v8-transparent.svg",
+      "sha256": "302624d4e964632692c634595e0ddb1a43353e6ce346c25cd1777dc3ef90e7e9",
+      "background": "transparent",
+      "wordmark": true
+    },
+    {
+      "file": "docs/brand/vagancia-fitness/vagancia-fitness-orbita-ojo-v8-symbol.svg",
+      "sha256": "cc6f45107c9f9a97291136172e150e817d49947c348d5b3b6586a9989f5b2031",
+      "background": "transparent",
+      "wordmark": false
+    }
+  ],
+  "note": "Eye centered using the painted bounds of the selected paths. Path 10 contains iris details and two diamond fragments; only those two peripheral fragments are excluded. A small isolated peripheral stroke is excluded from path 21 (subpath 2); retained subpaths keep their original data. White ink is adapted to ivory. No embedded raster, external fonts or image generation. At composition time, this was a requested proposal awaiting review."
+}
