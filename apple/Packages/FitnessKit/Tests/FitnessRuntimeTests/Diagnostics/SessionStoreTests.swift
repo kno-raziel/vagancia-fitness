@@ -303,14 +303,15 @@ struct SessionStoreTests {
     @Test func staleSessionWritersReconcileAgainstCommittedEventSequence() async throws {
         let directory = try workspace()
         defer { try? FileManager.default.removeItem(at: directory) }
-        let first = SessionStore(directory: directory)
+        let first = SessionStore(directory: directory, writerDelay: .milliseconds(350))
         try first.startSession()
         let second = SessionStore(directory: directory)
         try first.recordLifecycle("background")
-        // This writer still has sequence 1 cached. Appending must use SQLite's
-        // committed maximum rather than retrying that stale sequence.
-        try second.addNote("Nota después del cambio de estado")
+        // Independent writer queues have no cross-store commit ordering. Commit
+        // the first writer before exercising the second writer's stale cache.
         try await first.flush()
+        #expect(second.session?.events.last?.sequence == 2)
+        try second.addNote("Nota después del cambio de estado")
         try await second.flush()
 
         let journal = try SessionJournal(directory: directory.appendingPathComponent("Sessions"))
