@@ -401,16 +401,16 @@ struct WorkoutCoordinatorIntegrationTests {
 
     @MainActor @Test func stopDuringPendingStartPreemptsTargetsAndIncline() async throws {
         let directory = temporaryDirectory()
-        let transport = FakeWorkoutTransport(targetTelemetry: .converge, holdStartCommand: true)
+        // Preparation exceeds the former 200 ms polling budget even on a fast runner.
+        let transport = FakeWorkoutTransport(
+            targetTelemetry: .converge, holdStartCommand: true,
+            preparationDelay: .milliseconds(350))
         let coordinator = WorkoutCoordinator(
             directory: directory, backgroundService: FakeWorkoutBackgroundService(),
             controlTransport: transport, targetStableSeconds: 0.15, targetDeadlineScale: 0.07)
         try await coordinator.start(program: twoIntervalProgram())
         let startTask = Task { try await coordinator.confirmAndStart() }
-        for _ in 0..<100 where !transport.startCommandIsPending {
-            try await Task.sleep(for: .milliseconds(2))
-        }
-        #expect(transport.startCommandIsPending)
+        try #require(await waitForCondition { transport.startCommandIsPending })
 
         try await coordinator.stop()
         transport.rejectPendingStartAsSuperseded()
@@ -425,21 +425,20 @@ struct WorkoutCoordinatorIntegrationTests {
     @MainActor @Test func expirationWhileWaitingForSpeedBlocksLateTargetCommands() async throws {
         let directory = temporaryDirectory()
         let transport = FakeWorkoutTransport(
-            targetTelemetry: .converge, startSpeedAfterAcknowledgement: nil)
+            targetTelemetry: .converge, startSpeedAfterAcknowledgement: nil,
+            preparationDelay: .milliseconds(350))
         let background = FakeWorkoutBackgroundService()
         let coordinator = WorkoutCoordinator(
             directory: directory, backgroundService: background, controlTransport: transport,
             targetStableSeconds: 0.15, targetDeadlineScale: 0.07)
         try await coordinator.start(program: twoIntervalProgram())
         let startTask = Task { try await coordinator.confirmAndStart() }
-        for _ in 0..<100 where !transport.actions.contains(.start) {
-            try await Task.sleep(for: .milliseconds(2))
-        }
-        #expect(transport.actions.contains(.start))
+        try #require(await waitForCondition { transport.actions.contains(.start) })
 
         // A late positive reading with a wall-clock timestamp older than the
         // Start request must not satisfy its fresh-speed confirmation.
-        transport.publishSpeed(1, receivedAt: transport.lastStartRequestAt!.addingTimeInterval(-0.2))
+        let startRequestedAt = try #require(transport.lastStartRequestAt)
+        transport.publishSpeed(1, receivedAt: startRequestedAt.addingTimeInterval(-0.2))
         try await Task.sleep(for: .milliseconds(150))
         #expect(coordinator.snapshot?.state == .starting)
         #expect(!transport.actions.contains(.speed) && !transport.actions.contains(.inclination))
@@ -456,17 +455,15 @@ struct WorkoutCoordinatorIntegrationTests {
 
     @MainActor @Test func expirationDuringSpeedTargetDoesNotContinueToInclination() async throws {
         let directory = temporaryDirectory()
-        let transport = FakeWorkoutTransport(targetTelemetry: .converge, holdSpeedTarget: true)
+        let transport = FakeWorkoutTransport(
+            targetTelemetry: .converge, holdSpeedTarget: true, preparationDelay: .milliseconds(350))
         let background = FakeWorkoutBackgroundService()
         let coordinator = WorkoutCoordinator(
             directory: directory, backgroundService: background, controlTransport: transport,
             targetStableSeconds: 0.15, targetDeadlineScale: 0.07)
         try await coordinator.start(program: twoIntervalProgram())
         let startTask = Task { try await coordinator.confirmAndStart() }
-        for _ in 0..<100 where !transport.speedTargetIsPending {
-            try await Task.sleep(for: .milliseconds(2))
-        }
-        #expect(transport.speedTargetIsPending)
+        try #require(await waitForCondition { transport.speedTargetIsPending })
 
         background.expire()
         transport.acceptHeldSpeedTarget()
@@ -488,10 +485,7 @@ struct WorkoutCoordinatorIntegrationTests {
         try await coordinator.confirmAndStart()
         let inclineCountBeforeSkip = transport.actions.filter { $0 == .inclination }.count
         let skipTask = Task { try await coordinator.skipSegment() }
-        for _ in 0..<100 where !transport.speedTargetIsPending {
-            try await Task.sleep(for: .milliseconds(2))
-        }
-        #expect(transport.speedTargetIsPending)
+        try #require(await waitForCondition { transport.speedTargetIsPending })
 
         try await coordinator.stop()
         transport.acceptHeldSpeedTarget()
@@ -500,6 +494,16 @@ struct WorkoutCoordinatorIntegrationTests {
         #expect(coordinator.snapshot?.state == .completed)
         #expect(transport.actions.filter { $0 == .stop }.count == 2)
         #expect(transport.actions.filter { $0 == .inclination }.count == inclineCountBeforeSkip)
+    }
+
+    /// Wait for the interleaving under test instead of assuming a runner's scheduling latency.
+    @MainActor private func waitForCondition(_ condition: () -> Bool) async throws -> Bool {
+        let clock = ContinuousClock()
+        let deadline = clock.now.advanced(by: .seconds(10))
+        while !condition(), clock.now < deadline {
+            try await clock.sleep(for: .milliseconds(10))
+        }
+        return condition()
     }
 
     // SessionStore/WorkoutCoordinator can still have SQLite writers and a scheduler
@@ -918,10 +922,7 @@ extension WorkoutCoordinatorIntegrationTests {
             controlTransport: transport, targetStableSeconds: 0.15, targetDeadlineScale: 0.07)
         try await coordinator.start(program: twoIntervalProgram())
         let startTask = Task { try await coordinator.confirmAndStart() }
-        for _ in 0..<100 where coordinator.currentRecord == nil {
-            try await Task.sleep(for: .milliseconds(2))
-        }
-        #expect(coordinator.currentRecord != nil)
+        try #require(await waitForCondition { coordinator.currentRecord != nil })
         #expect(transport.actions.isEmpty)
         for index in 0..<300 {
             let eventID = "stream-distance-\(index)"
@@ -1068,8 +1069,7 @@ extension WorkoutCoordinatorIntegrationTests {
         let tick = Task {
             await coordinator.schedulerStep(at: ProcessInfo.processInfo.systemUptime + 20.05)
         }
-        for _ in 0..<200 where releaseTarget == nil { try await Task.sleep(for: .milliseconds(2)) }
-        #expect(releaseTarget != nil)
+        try #require(await waitForCondition { releaseTarget != nil })
         try await coordinator.finishAndSave()
         let actionsAtStop = transport.actions
         releaseTarget?.resume()

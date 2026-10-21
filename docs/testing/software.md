@@ -20,7 +20,7 @@ From the repository root:
 
 `./scripts/check-repository` runs repository policy, source privacy declarations, localization catalogs and synthetic tooling regressions without Xcode. It is the entry point for documentation-only contributions and the Linux repository workflow. Negative cases cover missing localization catalogs and unsupported format arguments, private-reference path containment and preflight behavior. Apple wrapper checks use mock tools rather than downloading SDKs; resource-tool fixtures exercise privacy declarations and font conversion.
 
-The Apple workflow uses an explicitly selected Xcode/runtime pair, compiles all three apps in Debug and Release, checks privacy manifests in the built bundles, and runs the five test groups. Independent groups continue after a test failure; setup and build failures stop test execution. Failure evidence is retained through a pinned artifact action with bounded retention, limited to synthetic CI logs and test results. Hosted execution remains unverified until the workflow actually runs in a remote repository.
+The Apple workflow uses an explicitly selected Xcode/runtime pair, compiles all three apps in Debug and Release, checks privacy manifests in the built bundles, and runs the five test groups. Independent groups continue after a test failure; setup and build failures stop test execution. Failure evidence is retained through a pinned artifact action with bounded retention, limited to synthetic CI logs and test results. The repository’s GitHub Actions runs report hosted results for each commit; local results do not establish that a hosted run passes.
 
 ## Coverage and interpretation
 
@@ -32,7 +32,7 @@ The Apple workflow uses an explicitly selected Xcode/runtime pair, compiles all 
 | Product UI | Workout/program navigation, controls, accessibility layouts, persistence, Watch preparation and exports |
 | Debug UI | Diagnostic session flow, GATT/capability display, synthetic telemetry, protocol comparison and export |
 
-Public-support export tests use sentinels across text, UUIDs and raw/encoded bytes to check omissions across archive members. Complete-export cases verify evidence retention. Storage-migration cases cover real repository/session restoration with synthetic data, SQLite sidecars, repeat resolution, conflicts and filesystem failure.
+Public-support export tests use sentinels across text, UUIDs and raw/encoded bytes to check omissions across archive members. Complete-export cases verify evidence retention. Storage-migration cases cover real repository/session restoration with synthetic data, SQLite sidecars, repeat resolution, conflicts and filesystem failure. Coordinator interleaving tests wait for the pending command or persistence state before injecting Stop or background expiration. A bounded monotonic deadline fails missing preconditions without assuming a fixed runner speed; simulator timing does not change production command deadlines.
 
 The catalog validator checks keys, duplicate JSON keys, plural variants, argument contracts, helper references and optional compiler-extracted keys. `scripts/check-contracts` compares SwiftPM vectors and native brand copies with their canonical files and checks font hashes/OFL notices.
 
