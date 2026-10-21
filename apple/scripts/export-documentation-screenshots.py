@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Refresh reviewed documentation screenshots from synthetic XCTest attachments.
 
-Only the fixed product/debug capture names and test identifiers are accepted.
+Only the fixed capture names and test identifiers are accepted. The share-card
+mode accepts a visually reviewed synthetic PNG from the native image renderer.
 Existing documentation images at these fixed names are replaced for a refresh.
 Original attachments and their manifest remain unchanged. PNG pixel data is not
 reencoded: validated image/color chunks are copied verbatim; ancillary metadata
@@ -26,7 +27,11 @@ CAPTURES = {
     "product": (
         "VaganciaFitnessUITests/testCaptureProductScreensAcrossThePrimaryFlows()",
         {"product-home": "app-home.png", "product-active-workout": "app-workout.png",
-         "product-activity": "app-history.png"},
+         "product-activity": "app-history.png", "product-workout-summary": "app-results.png"},
+    ),
+    "sharing": (
+        "VaganciaFitnessUITests/testStopKeepsSummaryUntilExplicitReturnAndImageOpensShareSheet()",
+        {"product-image-system-share-083": "app-share-sheet.png"},
     ),
     "debug": (
         "SessionFlowTests/testNativeLiquidGlassTabsKeepHistoricalMetricsAndMotorGates()",
@@ -164,8 +169,29 @@ def prepare_exports(directory, kind, destination):
     return destination, list(selected.values())
 
 
-def export_screenshots(directory, kind, destination):
-    destination, prepared = prepare_exports(directory, kind, destination)
+def prepare_share_card(source, destination):
+    """Validate a reviewed native renderer PNG without treating it as an attachment."""
+    source = source.resolve()
+    destination = destination.resolve()
+    if not source.is_file() or source.suffix.lower() != ".png":
+        raise ValueError("Share card source must be a PNG file")
+    if destination.exists() and not destination.is_dir():
+        raise ValueError("Output directory must be a directory")
+    target = destination / "app-share-card.png"
+    if target.is_symlink() or not target.resolve().is_relative_to(destination):
+        raise ValueError("Unsafe output path: app-share-card.png")
+    if target.resolve() == source:
+        raise ValueError("Share card source and output must differ")
+    if target.exists() and not target.is_file():
+        raise ValueError("Output must be a regular file: app-share-card.png")
+    return destination, [(target, strip_png_metadata(source.read_bytes()))]
+
+
+def export_screenshots(source, kind, destination):
+    if kind == "share-card":
+        destination, prepared = prepare_share_card(source, destination)
+    else:
+        destination, prepared = prepare_exports(source, kind, destination)
     destination.mkdir(parents=True, exist_ok=True)
     for target, data in prepared:
         temporary = None
@@ -182,12 +208,12 @@ def export_screenshots(directory, kind, destination):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("attachment_directory", type=Path, help="Directory exported by xcresulttool, including manifest.json")
-    parser.add_argument("--kind", choices=tuple(CAPTURES), required=True)
+    parser.add_argument("source", type=Path, help="xcresulttool attachment directory, or native PNG for --kind share-card")
+    parser.add_argument("--kind", choices=(*CAPTURES, "share-card"), required=True)
     parser.add_argument("--output-directory", type=Path, default=ROOT / "docs/images")
     args = parser.parse_args()
     try:
-        names = export_screenshots(args.attachment_directory, args.kind, args.output_directory)
+        names = export_screenshots(args.source, args.kind, args.output_directory)
     except (OSError, ValueError, KeyError, TypeError, struct.error) as error:
         print(f"Screenshot export failed: {error}", file=sys.stderr)
         return 1

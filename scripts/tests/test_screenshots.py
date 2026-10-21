@@ -113,7 +113,7 @@ class ScreenshotExportTests(unittest.TestCase):
     def write_manifest(self):
         (self.source / "manifest.json").write_text(json.dumps(self.records))
 
-    def test_both_capture_sets_map_to_fixed_outputs_and_preserve_originals(self):
+    def test_capture_sets_map_to_fixed_outputs_and_preserve_originals(self):
         original = {path.name: path.read_bytes() for path in self.source.iterdir()}
         self.output.mkdir()
         (self.output / "keep.txt").write_text("unrelated documentation")
@@ -205,6 +205,47 @@ class ScreenshotExportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "manifest escapes"):
             screenshots.export_screenshots(self.source, "product", self.output)
         self.assertFalse(self.output.exists())
+
+    def test_native_share_card_cli_strips_metadata_and_preserves_source(self):
+        source = self.root / "native-card.png"
+        source.write_bytes(synthetic_png())
+        result = subprocess.run([sys.executable, "-B", "-S", str(SCRIPT), str(source),
+                                 "--kind", "share-card", "--output-directory", str(self.output)],
+                                capture_output=True, text=True, check=False)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual([path.name for path in self.output.iterdir()], ["app-share-card.png"])
+        self.assertEqual((self.output / "app-share-card.png").read_bytes(),
+                         screenshots.strip_png_metadata(synthetic_png()))
+        self.assertEqual(source.read_bytes(), synthetic_png())
+
+    def test_native_share_card_rejects_source_output_alias_and_symlink(self):
+        self.output.mkdir()
+        source = self.output / "app-share-card.png"
+        source.write_bytes(synthetic_png())
+        with self.assertRaisesRegex(ValueError, "must differ"):
+            screenshots.export_screenshots(source, "share-card", self.output)
+        alias = self.root / "alias"
+        alias.symlink_to(self.output, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, "must differ"):
+            screenshots.export_screenshots(source, "share-card", alias)
+        outside = self.root / "native-card.png"
+        outside.write_bytes(synthetic_png())
+        source.unlink()
+        source.symlink_to(outside)
+        with self.assertRaisesRegex(ValueError, "Unsafe output"):
+            screenshots.export_screenshots(outside, "share-card", self.output)
+        self.assertEqual(outside.read_bytes(), synthetic_png())
+
+    def test_native_share_card_invalid_input_preserves_previous_output(self):
+        self.output.mkdir()
+        existing = self.output / "app-share-card.png"
+        existing.write_bytes(b"previous reviewed card")
+        source = self.root / "native-card.png"
+        source.write_bytes(synthetic_png()[:-1])
+        for candidate in (source, self.root / "missing.png", self.source):
+            with self.subTest(source=candidate), self.assertRaises(ValueError):
+                screenshots.export_screenshots(candidate, "share-card", self.output)
+            self.assertEqual(existing.read_bytes(), b"previous reviewed card")
 
 
 if __name__ == "__main__":
