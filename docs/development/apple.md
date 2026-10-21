@@ -16,11 +16,11 @@ The source targets iOS and watchOS 26 and uses Swift 6 language mode. Simulator 
 | Environment | Xcode | Bundled Swift | Simulator runtime |
 | --- | --- | --- | --- |
 | Local reference | 26.1.1 | 6.2.1 | iOS 26.1 |
-| GitHub Actions configuration | 26.2 | 6.2.3 | iOS 26.2, iPhone 17 Pro |
+| GitHub Actions configuration (`macos-15`, ARM64 host) | 26.2 | 6.2.3 | iOS 26.2, iPhone 17 Pro |
 
 XcodeGen remains pinned to 2.44.1. The doctor supports the Xcode 26/Swift 6.2 family; `EXPECTED_XCODE_VERSION` and `EXPECTED_SWIFT_VERSION` request exact checks, as CI does. Supported environment selection is distinct from a recorded passing result.
 
-The [official macOS runner inventory](https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md) lists the CI Xcode and simulator pair. CI checks their actual availability before tests. Runner contents change, so review the pair together when updating the workflow. A local run does not establish that a hosted workflow passes.
+The [official macOS runner inventory](https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md) lists the CI Xcode and simulator pair. CI checks their actual availability before tests. Runner contents change, so review the pair together when updating the workflow. A local run does not establish that a hosted workflow passes.
 
 ## Generate, build and test
 
