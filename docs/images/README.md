@@ -1,6 +1,6 @@
 # Native app captures
 
-These images show the checked-in native SwiftUI apps in Spanish on an iPhone simulator and the actual PNG produced by the native share-card renderer. System share actions reflect the simulator's installed apps and language settings. All workout and diagnostic values come from isolated synthetic UI-test scenarios. They contain no hardware-session exports, operator notes, health records, real device identifiers or third-party FitShow screenshots. The product brand retains its [separate notice](../../shared/brand/NOTICE.md).
+The README gallery shows the checked-in native SwiftUI product in English on an iPhone simulator and the actual PNG produced by the native share-card renderer. System share actions reflect the simulator's installed apps and language settings. All workout and diagnostic values come from isolated synthetic UI-test scenarios. They contain no hardware-session exports, operator notes, health records, real device identifiers or third-party FitShow screenshots. The product brand retains its [separate notice](../../shared/brand/NOTICE.md).
 
 | Image | Native UI test | Attachment name |
 | --- | --- | --- |
@@ -8,13 +8,24 @@ These images show the checked-in native SwiftUI apps in Spanish on an iPhone sim
 | [Workout](app-workout.png) | Same product test | `product-active-workout` |
 | [History](app-history.png) | Same product test | `product-activity` |
 | [Results](app-results.png) | Same product test | `product-workout-summary` |
-| [Share sheet](app-share-sheet.png) | `VaganciaFitnessUITests.testStopKeepsSummaryUntilExplicitReturnAndImageOpensShareSheet` | `product-image-system-share-083` |
+| [Share sheet](app-share-sheet.png) | `VaganciaFitnessUITests.testEnglishNavigationProgramWatchWorkoutAndImageShare` | `localization-en-share-image` |
 | [Exported image](app-share-card.png) | Same sharing test | Native renderer output from the simulator app's temporary `VaganciaFitnessShare/` directory; not an XCTest attachment |
-| [Debug](app-debug.png) | `SessionFlowTests.testNativeLiquidGlassTabsKeepHistoricalMetricsAndMotorGates` | `liquid-glass-session` |
+| [Debug reference (Spanish)](app-debug.png) | `SessionFlowTests.testNativeLiquidGlassTabsKeepHistoricalMetricsAndMotorGates` | `liquid-glass-session` |
+
+The separate Debug app retains Spanish interface text. Its reference remains available here, outside the English product gallery.
 
 The results capture shows a program workout. The exported image and share sheet use a separate free-workout test session and therefore show different values. The exported image carries the native simulated-example label; it does not represent a physical workout or a HealthKit save.
 
-Run `./apple/scripts/test ui-product` and `./apple/scripts/test ui-debug` with an installed supported simulator. The tests retain the named screenshot attachments in their `.xcresult` bundles under ignored `build/apple/Results/`. Export attachments with `xcrun xcresulttool export attachments --path RESULT_BUNDLE --output-path NEW_DIRECTORY`; its `manifest.json` maps test identifiers and attachment names to files. Keep the full run and attachment manifest private under `build/`.
+Run the product capture tests with an installed supported simulator:
+
+```sh
+./apple/scripts/test ui-product \
+  -only-testing:VaganciaFitnessUITests/VaganciaFitnessUITests/testCaptureProductScreensAcrossThePrimaryFlows \
+  -only-testing:VaganciaFitnessUITests/VaganciaFitnessUITests/testEnglishNavigationProgramWatchWorkoutAndImageShare \
+  -parallel-testing-enabled NO -testLanguage en -testRegion US
+```
+
+Both product tests launch the app with English and the US locale. `-testLanguage en -testRegion US` also selects the test language and region for system UI. Run `./apple/scripts/test ui-debug` separately to refresh the Spanish Debug reference. The tests retain the named screenshot attachments in their `.xcresult` bundles under ignored `build/apple/Results/`. Export attachments with `xcrun xcresulttool export attachments --path RESULT_BUNDLE --output-path NEW_DIRECTORY`; its `manifest.json` maps test identifiers and attachment names to files. Keep the full run and attachment manifest private under `build/`.
 
 Visually review the selected captures, then use the metadata-only [exporter](../../apple/scripts/export-documentation-screenshots.py) to refresh the fixed filenames:
 

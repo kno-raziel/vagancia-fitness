@@ -252,23 +252,23 @@ final class VaganciaFitnessUITests: XCTestCase {
     }
 
     func testCaptureProductScreensAcrossThePrimaryFlows() {
-        let app = launchCleanApp()
+        let app = launchCleanApp(language: "en", region: "US")
         XCTAssertTrue(app.staticTexts["home-title"].waitForExistence(timeout: 5))
         capture(app, named: "product-home")
 
-        app.tabBars.buttons["Ajustes"].tap()
+        app.tabBars.buttons["Settings"].tap()
         enableDemoMode(in: app)
-        app.tabBars.buttons["Programas"].tap()
+        app.tabBars.buttons["Programs"].tap()
         capture(app, named: "product-programs")
 
         app.buttons["program-essential"].tap()
         capture(app, named: "product-program-detail")
-        app.buttons["Opciones del programa"].tap()
-        app.buttons["Editar programa"].tap()
-        XCTAssertTrue(app.navigationBars["Editar programa"].waitForExistence(timeout: 3))
+        app.buttons["Program options"].tap()
+        app.buttons["Edit program"].tap()
+        XCTAssertTrue(app.navigationBars["Edit program"].waitForExistence(timeout: 3))
         capture(app, named: "product-program-editor")
-        app.buttons["Cancelar"].tap()
-        app.buttons["Descartar cambios"].tap()
+        app.buttons["Cancel"].tap()
+        app.buttons["Discard changes"].tap()
 
         app.buttons["start-program"].tap()
         XCTAssertTrue(app.buttons["confirm-workout-start"].waitForExistence(timeout: 3))
@@ -279,20 +279,20 @@ final class VaganciaFitnessUITests: XCTestCase {
         capture(app, named: "product-active-workout")
         app.buttons["finish-workout"].tap()
         confirmFinish(in: app)
-        XCTAssertTrue(app.staticTexts["Sesión guardada"].waitForExistence(timeout: 8))
+        XCTAssertTrue(app.staticTexts["Session saved"].waitForExistence(timeout: 8))
         XCTAssertTrue(
             app.descendants(matching: .any).matching(identifier: "speed-source-legend-mock").firstMatch
                 .exists)
         capture(app, named: "product-workout-summary")
 
         app.swipeUp()
-        XCTAssertTrue(app.buttons["Volver a Actividad"].waitForExistence(timeout: 3))
-        app.buttons["Volver a Actividad"].tap()
-        XCTAssertTrue(app.tabBars.buttons["Actividad"].waitForExistence(timeout: 5))
-        app.tabBars.buttons["Actividad"].tap()
-        XCTAssertTrue(app.staticTexts["Historial"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["Back to Activity"].waitForExistence(timeout: 3))
+        app.buttons["Back to Activity"].tap()
+        XCTAssertTrue(app.tabBars.buttons["Activity"].waitForExistence(timeout: 5))
+        app.tabBars.buttons["Activity"].tap()
+        XCTAssertTrue(app.staticTexts["History"].waitForExistence(timeout: 5))
         capture(app, named: "product-activity")
-        app.tabBars.buttons["Ajustes"].tap()
+        app.tabBars.buttons["Settings"].tap()
         capture(app, named: "product-settings")
     }
 

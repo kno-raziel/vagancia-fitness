@@ -30,8 +30,8 @@ CAPTURES = {
          "product-activity": "app-history.png", "product-workout-summary": "app-results.png"},
     ),
     "sharing": (
-        "VaganciaFitnessUITests/testStopKeepsSummaryUntilExplicitReturnAndImageOpensShareSheet()",
-        {"product-image-system-share-083": "app-share-sheet.png"},
+        "VaganciaFitnessUITests/testEnglishNavigationProgramWatchWorkoutAndImageShare()",
+        {"localization-en-share-image": "app-share-sheet.png"},
     ),
     "debug": (
         "SessionFlowTests/testNativeLiquidGlassTabsKeepHistoricalMetricsAndMotorGates()",

@@ -10,17 +10,16 @@ Distribution is source-only. Build the apps locally using the [Apple development
 
 <table>
   <tr>
-    <th>Home</th><th>Workout</th><th>History</th><th>Debug</th>
+    <th>Home</th><th>Workout</th><th>History</th>
   </tr>
   <tr>
     <td><img src="docs/images/app-home.png" alt="Native home screen with workout and program entry points" width="200"></td>
     <td><img src="docs/images/app-workout.png" alt="Demonstration workout with explicitly simulated measurements" width="200"></td>
     <td><img src="docs/images/app-history.png" alt="Local workout history containing a synthetic session" width="200"></td>
-    <td><img src="docs/images/app-debug.png" alt="Separate Bluetooth diagnostic app showing synthetic telemetry" width="200"></td>
   </tr>
 </table>
 
-Open the full-size captures: [Home](docs/images/app-home.png), [Workout](docs/images/app-workout.png), [History](docs/images/app-history.png), [Debug](docs/images/app-debug.png).
+Open the full-size captures: [Home](docs/images/app-home.png), [Workout](docs/images/app-workout.png), [History](docs/images/app-history.png).
 
 ### Results and sharing
 
@@ -39,7 +38,7 @@ Open full size: [Results](docs/images/app-results.png), [Exported image](docs/im
 
 The middle image is the actual PNG that the native app exports through the iOS share sheet. The results screen shows a program workout; the shared image and share sheet show a separate free-workout test session, so their values differ. All measurements are synthetic. System share actions reflect the simulator's installed apps and language settings.
 
-These are native SwiftUI simulator captures from isolated UI-test scenarios, with synthetic data. They do not establish hardware compatibility or sensor accuracy. [Try the demonstration walkthrough](docs/guides/using-the-app.md#try-a-workout-without-hardware); [capture sources](docs/images/README.md) identify the reproducible test flows.
+These are native SwiftUI simulator captures in English from isolated UI-test scenarios, with synthetic data. They do not establish hardware compatibility or sensor accuracy. [Try the demonstration walkthrough](docs/guides/using-the-app.md#try-a-workout-without-hardware); [capture sources](docs/images/README.md) identify the reproducible test flows and the separate Spanish-language Debug reference.
 
 ## Start here
 
