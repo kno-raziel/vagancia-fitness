@@ -17,8 +17,10 @@ SIMULATORS = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(SIMULATORS)
 
 
-def device(udid="eligible", name="iPhone 17 Pro", available=True, state="Shutdown"):
-    return {"udid": udid, "name": name, "isAvailable": available, "state": state}
+def device(udid="eligible", name="iPhone 17 Pro", available=True, state="Shutdown",
+           device_type="com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro"):
+    return {"udid": udid, "name": name, "isAvailable": available, "state": state,
+            "deviceTypeIdentifier": device_type}
 
 
 DESTINATIONS = """Available destinations for the scheme:
@@ -35,7 +37,8 @@ class SimulatorFixtures(unittest.TestCase):
         self.inventory = {"devices": {
             "com.apple.CoreSimulator.SimRuntime.iOS-26-2": [
                 device(), device("ineligible"), device("not-in-scheme"),
-                device("unavailable", available=False), device("tablet", "iPad Pro"),
+                device("unavailable", available=False),
+                device("tablet", "iPad Pro", device_type="com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M5-16GB"),
             ],
             "com.apple.CoreSimulator.SimRuntime.iOS-18-0": [device("old", "iPhone 16")],
             "com.apple.CoreSimulator.SimRuntime.tvOS-26-2": [device("tv")],
@@ -45,6 +48,28 @@ class SimulatorFixtures(unittest.TestCase):
         devices = SIMULATORS.usable_devices(self.inventory, DESTINATIONS)
         self.assertEqual([entry["udid"] for entry in devices], ["eligible"])
         self.assertEqual(SIMULATORS.select_destination(devices, ""), "platform=iOS Simulator,id=eligible")
+
+    def test_renamed_iphone_resolves_automatically_and_by_name_or_id(self):
+        self.inventory["devices"]["com.apple.CoreSimulator.SimRuntime.iOS-26-2"][0]["name"] = "Workout Lab"
+        destinations = DESTINATIONS.replace("name:iPhone 17 Pro", "name:Workout Lab")
+        devices = SIMULATORS.usable_devices(self.inventory, destinations)
+        self.assertEqual([entry["udid"] for entry in devices], ["eligible"])
+        for requested in ("", "platform=iOS Simulator,id=eligible",
+                          "platform=iOS Simulator,name=Workout Lab,OS=26.2"):
+            with self.subTest(requested=requested):
+                self.assertEqual(SIMULATORS.select_destination(devices, requested),
+                                 "platform=iOS Simulator,id=eligible")
+
+    def test_iphone_name_cannot_override_non_iphone_or_missing_device_type(self):
+        for device_type in ("com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M5-16GB",
+                            "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Ultra-2-49mm",
+                            "com.apple.CoreSimulator.SimDeviceType.iPhoneLike", "", None):
+            with self.subTest(device_type=device_type):
+                entry = device(device_type=device_type)
+                if device_type is None:
+                    entry.pop("deviceTypeIdentifier")
+                inventory = {"devices": {"com.apple.CoreSimulator.SimRuntime.iOS-26-2": [entry]}}
+                self.assertEqual(SIMULATORS.usable_devices(inventory, DESTINATIONS), [])
 
     def test_explicit_destination_cannot_bypass_preflight(self):
         devices = SIMULATORS.usable_devices(self.inventory, DESTINATIONS)
@@ -228,6 +253,21 @@ class WrapperFixtures(unittest.TestCase):
         result = self.run_wrapper("doctor")
         self.assertEqual(result.returncode, 1)
         self.assertIn("expected 26.1.1, found 26.2", result.stdout)
+
+    def test_doctor_and_test_accept_a_renamed_iphone(self):
+        self.env["MOCK_INVENTORY"] = json.dumps({"devices": {
+            "com.apple.CoreSimulator.SimRuntime.iOS-26-2": [device(name="Workout Lab")]}})
+        self.env["MOCK_DESTINATIONS"] = DESTINATIONS.replace("name:iPhone 17 Pro", "name:Workout Lab")
+        self.env["DESTINATION"] = "platform=iOS Simulator,name=Workout Lab,OS=26.2"
+        result = self.run_wrapper("doctor")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("usable iOS 26+ iPhone simulators: 1", result.stdout)
+        self.assertIn("destination        platform=iOS Simulator,id=eligible", result.stdout)
+        result = self.run_wrapper("test", "core")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        call = self.calls()[-1]
+        self.assertEqual(call[call.index("-destination") + 1], "platform=iOS Simulator,id=eligible")
+        self.assertEqual(call[-1], "test")
 
     def test_doctor_rejects_only_old_simulators(self):
         self.env["MOCK_INVENTORY"] = json.dumps({"devices": {"com.apple.CoreSimulator.SimRuntime.iOS-18-0": [device("old")]}})

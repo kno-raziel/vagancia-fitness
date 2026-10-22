@@ -34,7 +34,8 @@ def usable_devices(simulators, destinations):
             continue
         os_version = runtime.split("iOS-", 1)[1].replace("-", ".")
         for device in entries:
-            if (device.get("isAvailable") and device.get("name", "").startswith("iPhone")
+            if (device.get("isAvailable") and device.get("deviceTypeIdentifier", "").startswith(
+                    "com.apple.CoreSimulator.SimDeviceType.iPhone-")
                     and device.get("udid") in accepted_architectures):
                 devices.append({**device, "OS": os_version,
                                 "architectures": accepted_architectures[device["udid"]]})

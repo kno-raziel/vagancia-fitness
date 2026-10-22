@@ -40,6 +40,8 @@ CONFIGURATION=Release ./apple/scripts/build VaganciaFitnessWatch
 
 `DESTINATION` selects an iOS simulator; `WATCH_DESTINATION` separately selects a Watch simulator. Without an override, test groups select an available iPhone simulator on iOS 26 or newer. Results go to ignored `build/apple/Results/` bundles and full logs to `build/apple/logs/`. Method filters replace the whole-group selection, for example `./apple/scripts/test runtime -only-testing:FitnessRuntimeTests/PublicSupportExportTests`.
 
+The preflight identifies iPhones by their CoreSimulator device type, so custom simulator names work with automatic selection and explicit destinations. It also checks runtime availability and the destinations accepted by the selected scheme; a device name alone does not establish compatibility.
+
 `CONFIGURATION` accepts `Debug` (the default) or `Release`. Release builds check the production conditional-compilation paths without signing. `test all` collects failures across independent groups and returns failure if any group fails. Native UI tests run synthetic scenarios in the simulator. Use the [hardware-free walkthrough](../guides/using-the-app.md#try-a-workout-without-hardware) for an interactive first run.
 
 For documentation, contracts or repository tooling on macOS or Linux, use `./scripts/check-repository`. It needs Python but no Apple SDK, signing configuration or private evidence. The full `./scripts/check` also checks the Apple environment, Swift formatting and localization catalogs.
