@@ -1,6 +1,14 @@
 # VAGANCIA FITNESS
 
-VAGANCIA FITNESS is a native iOS workout app for FTMS treadmills, with an Apple Watch companion for workout and HealthKit capture. VaganciaFitnessDebug is a separate Bluetooth diagnostic app. The Apple apps share the local FitnessKit package. The product and Watch interface support Spanish and English.
+A personal treadmill workout project for iPhone and Apple Watch, built with Swift, SwiftUI, CoreBluetooth, and HealthKit.
+
+## Why I built it
+
+I'm building Vagancia Fitness around my own treadmill workouts. I wanted an app where I could record sessions, keep my workout history locally, and bring in workout and health data from Apple Watch.
+
+The project includes a workout app, an Apple Watch companion, and a separate Bluetooth diagnostic app. Keeping the diagnostic tools separate gives me room to investigate what the treadmill reports while developing the workout experience. The Apple apps share a local FitnessKit package.
+
+The app supports Spanish and English and works without an account or project backend. I'm sharing the source so others can inspect it and build it locally.
 
 The app inspects Bluetooth services, decodes FTMS telemetry, records workouts and exports evidence locally. Movement commands require an explicit operator action. Bluetooth stop is not an emergency stop. [Product scope](PRODUCT.md) defines supported features and evidence limits.
 
